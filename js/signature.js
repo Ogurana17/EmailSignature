@@ -32,7 +32,7 @@ function japaneseCode() {
         signatureJpn += '<tr id=campany style="width:max-content">\n' +
             '<td colspan="2">' + document.getElementById('inputCompany').Value;
     }
-    
+
     if (document.getElementById('inputPosition').Value) {
         signatureJpn += ' ' + document.getElementById('inputPosition').Value + '</td>\n' +
             '</tr>\n';
@@ -48,7 +48,7 @@ function japaneseCode() {
         signatureJpn += '<tr style="width:max-content">\n'
         '<td style=text-align:left>〒' + document.getElementById('inputZipCode').Value + '</td >\n';
     }
-    
+
     if (document.getElementById('inputZipCode').Value) {
         signatureJpn += '<td><a href="https://www.google.co.jp/maps/place/' + document.getElementById('inputAddress').Value + '" style="text-decoration:none;color:#001ba0">' + document.getElementById('inputAddress').Value + '</a></td>\n'
         '</tr>\n';
