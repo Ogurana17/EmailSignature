@@ -19,7 +19,6 @@ function create() {
 
     if (style[0].checked) {
         japaneseCode();
-        signatureJpn += company.Value;
         code.innerText = signatureJpn;
         view.innerHTML = signatureJpn;
     }
@@ -89,71 +88,73 @@ function japaneseCode() {
     signatureJpn = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><br>\n' +
         '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:0px;border-top:1px solid #333;padding:5px">\n';
 
-    if (company.Value) {
+    if (company.value) {
         signatureJpn += '<tr id=campany style="width:max-content">\n' +
-            '<td colspan="2">' + company.Value;
+            '<td colspan="2">' + company.value;
     }
 
-    if (position.Value) {
-        signatureJpn += ' ' + position.Value + '</td>\n' +
+    if (position.value) {
+        signatureJpn += ' ' + position.value + '</td>\n' +
             '</tr>\n';
     }
 
-    if (name.Value) {
+    if (name.value) {
         signatureJpn += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
-            '<td colspan="2" style="padding-bottom:5px">' + name.Value + '</td>\n' +
+            '<td colspan="2" style="padding-bottom:5px">' + name.value + '</td>\n' +
             '</tr>\n';
     }
 
-    if (zipCode.Value) {
+    if (zipCode.value) {
         signatureJpn += '<tr style="width:max-content">\n'
-        '<td style=text-align:left>〒' + zipCode.Value + '</td >\n';
+        '<td style=text-align:left>〒' + zipCode.value + '</td >\n';
     }
 
-    if (address.Value) {
-        signatureJpn += '<td><a href="https://www.google.co.jp/maps/place/' + address.Value + '" style="text-decoration:none;color:#001ba0">' + address.Value + '</a></td>\n'
+    if (address.value) {
+        signatureJpn += '<td><a href="https://www.google.co.jp/maps/place/' + address.value + '" style="text-decoration:none;color:#001ba0">' + address.value + '</a></td>\n'
         '</tr>\n';
     }
 
-    if (phone.Value) {
-        var phoneNum = Phone.match(/^[0-9]+$/);
+    if (phone.value) {
+        var phoneNum = phone.value;
+        var phoneNumCha = phoneNum.match(/^[0-9]+$/);
         signatureJpn += '<tr style="width:max-content">\n' +
             '<td style=text-align:left>Tel</td>\n' +
-            '<td><a href="tel:' + phoneNum + '" style="text-decoration:none;color:#001ba0">' + phone.Value + '</a></td>\n' +
+            '<td><a href="tel:' + phoneNumCha + '" style="text-decoration:none;color:#001ba0">' + phone.value + '</a></td>\n' +
             '</tr>\n';
     }
 
-    if (document.getElementById('inputMobile').Value) {
-        var mobileNum = mobile.match(/^[0-9]+$/);
+    if (document.getElementById('inputMobile').value) {
+        var mobileNum = mobile.value;
+        var mobileNumCha = mobileNum.match(/^[0-9]+$/);
         signatureJpn += '<tr style="width:max-content">\n' +
             '<td style=text-align:left>Mobile</td>\n' +
-            '<td><a href="tel:' + mobileNum + '" style="text-decoration:none;color:#001ba0">' + mobile.Value + '</a></td>\n' +
+            '<td><a href="tel:' + mobileNumCha + '" style="text-decoration:none;color:#001ba0">' + mobile.value + '</a></td>\n' +
             '</tr>\n';
     }
 
-    if (fax.Value) {
+    if (fax.value) {
         signatureJpn += '<tr style="width:max-content">\n' +
             '<td style=text-align:left>Fax</td>\n' +
-            '<td>' + fax.Value + '</td>\n' +
+            '<td>' + fax.value + '</td>\n' +
             '</tr>\n';
     }
 
-    if (email.Value) {
+    if (email.value) {
         signatureJpn += '<tr style="width:max-content">\n' +
             '<td style=text-align:left>E-mail</td>\n' +
-            '<td><a href=mailto:' + email.Value + ' style="text-decoration:none;color:#001ba0">' + email.Value + '</a></td>\n' +
+            '<td><a href=mailto:' + email.value + ' style="text-decoration:none;color:#001ba0">' + email.value + '</a></td>\n' +
             '</tr>\n';
     }
 
-    if (web.Value) {
-        var webStr = web.Value;
-        var webStrChk = web.substr(0, 4);
+    if (web.value) {
+        var webStr = web.value;
+        var webStrChk = webStr.substr(0, 4);
         if (!(webStrChk === 'http')) {
-            webStr = 'http://' + web.Value;
+            webStr = 'http://' + web.value;
         }
         signatureJpn += '<tr style="width:max-content">\n' +
             '<td style=text-align:left>URL</td>\n' +
-            '<td><a href=' + webStr.Value + ' style="text-decoration:none;color:#001ba0">' + web.Value + '</a></td>\n' +
+            '<td><a href=' + webStr + ' style="text-decoration:none;color:#001ba0">' + web.value + '</a></td>\n' +
             '</tr>\n';
     }
 
