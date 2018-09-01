@@ -7012,6 +7012,7 @@ button.list-group-item-danger.active:focus {
 
 .panel-body {
   padding: 15px;
+  word-wrap: break-word;
 }
 .panel-body:before, .panel-body:after {
   display: table;
