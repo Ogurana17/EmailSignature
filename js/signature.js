@@ -29,6 +29,9 @@ function create() {
         englishCode();
         code.innerText = signatureEng;
         view.innerHTML = signatureEng;
+        code.select();
+        document.execCommand('copy');
+        alert('Copied the HTML code to clipboard.');
     }
 }
 
