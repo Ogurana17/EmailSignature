@@ -8720,3 +8720,9 @@ a {
 .popover {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, "Arial", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 }
+
+footer {
+  padding: 40px 0;
+  color: #eee;
+  background-color: #333;
+}

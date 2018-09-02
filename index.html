@@ -48,6 +48,11 @@
 		.panel-body {
 			word-wrap: break-word;
 		}
+		footer {
+			padding: 40px 0;
+			color: #eee;
+			background-color: #333;
+		}
 	}
 	</style>
 
@@ -180,7 +185,7 @@
 						<div class="form-group">
 							<div class="col-lg-10 col-lg-offset-2">
 								<button type="reset" class="btn btn-default">Clear</button>
-								<button type="submit" class="btn btn-primary" onclick="create()">Create</button>
+								<button type="submit" class="btn btn-primary" id="createBtn" onclick="create()">Create</button>
 							</div>
 						</div>
 					</fieldset>
@@ -198,13 +203,22 @@
 					<div class="panel-heading">
 						<h3 class="panel-title">HTML Code</h3>
 					</div>
-					<div class="panel-body" id="outputCode"></div>
+					<input type="text" class="form-control" id="outputCode">
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
+<footer class="small">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 text-center copyright">
+				&copy; 2018 Naoki Ogura
+			</div>
+		</div>
+	</div>
+</footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
