@@ -27,7 +27,7 @@ function create() {
     }
     else {
         englishCode();
-        code.innerText = signatureEng;
+        code.value = signatureEng;
         view.innerHTML = signatureEng;
         code.select();
         document.execCommand('copy');
