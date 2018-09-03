@@ -120,7 +120,7 @@ function englishCode() {
 
 function japaneseCode() {
     signatureJpn = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><br>\n' +
-        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:2px 0;border-top:1px solid #333;border-collapse:separate">\n';
+        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-collapse:separate">\n';
 
     if (company.value) {
         signatureJpn += '<tr id=campany style="width:max-content">\n' +
@@ -134,7 +134,7 @@ function japaneseCode() {
 
     if (name.value) {
         signatureJpn += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
-            '<td colspan="2" style="padding-buttom:5px">' + name.value + '</td>\n' +
+            '<td colspan="2" style="padding-bottom:5px">' + name.value + '</td>\n' +
             '</tr>\n';
     }
 
