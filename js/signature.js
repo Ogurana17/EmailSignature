@@ -23,7 +23,6 @@ function create() {
         view.innerHTML = signatureJpn;
         code.select();
         document.execCommand('copy');
-        alert('Copied the HTML code to clipboard.');
     }
     else {
         englishCode();
@@ -31,7 +30,6 @@ function create() {
         view.innerHTML = signatureEng;
         code.select();
         document.execCommand('copy');
-        alert('Copied the HTML code to clipboard.');
     }
 }
 
@@ -45,7 +43,7 @@ function englishCode() {
     
     if (name.value) {
         signatureEng += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
-        '<td colspan="2" style="padding-bottom:5px">' + name.value + '</td>\n' +
+        '<td colspan="2" style="padding:5px 0">' + name.value + '</td>\n' +
         '</tr>\n';    
     }
     if (position.value) {
@@ -127,7 +125,7 @@ function japaneseCode() {
 
     if (company.value) {
         signatureJpn += '<tr id=campany style="width:max-content">\n' +
-            '<td colspan="2">' + company.value;
+            '<td colspan="2" style="padding-top:5px">' + company.value;
     }
 
     if (position.value) {
@@ -137,7 +135,7 @@ function japaneseCode() {
 
     if (name.value) {
         signatureJpn += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
-            '<td colspan="2" style="padding-bottom:5px">' + name.value + '</td>\n' +
+            '<td colspan="2" style="padding-buttom:5px">' + name.value + '</td>\n' +
             '</tr>\n';
     }
 
