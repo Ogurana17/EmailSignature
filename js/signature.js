@@ -36,7 +36,6 @@ function create() {
 
 function englishCode() {
     signatureEng = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><br>\n' +
-        '<meta http-equiv="Content-Type" content="text/html; charset = UTF-8"><br>\n' +
         '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:0px;border-top:1px solid #333">\n' +
         '<tr><td>\n' +
         '<table id="info1" style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-collapse:separate">';
