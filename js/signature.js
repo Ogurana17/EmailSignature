@@ -62,7 +62,7 @@ function englishCode() {
         var phoneNumCha = convertToAnchorTag(phoneNum);
         signatureEng += '<tr id="phone">\n' +
         '<td>Phone: </td>\n' +
-        '<td><a href="tel:' + phoneNumCha + '" style="text-decoration:none;color:#001ba0">' + phone.value + '</a></td>\n' +
+        '<td><a href="tel:' + phoneNumCha + '" style="text-decoration:none;color:#1a0dab">' + phone.value + '</a></td>\n' +
         '</tr>\n';
     }
 
@@ -71,7 +71,7 @@ function englishCode() {
         var mobileNumCha = convertToAnchorTag(mobileNum);
         signatureEng += '<tr id="mobile">\n' +
         '<td>Mobile: </td>\n' +
-        '<td><a href="tel:' + mobileNumCha + '" style="text-decoration:none;color:#001ba0">' + mobile.value + '</a></td>\n' +
+        '<td><a href="tel:' + mobileNumCha + '" style="text-decoration:none;color:#1a0dab">' + mobile.value + '</a></td>\n' +
         '</tr>\n';
     }
 
@@ -89,7 +89,7 @@ function englishCode() {
 
     if (email.value) {
         signatureEng += '<tr id="email_website" style="padding:5px 0 0 0 ">\n' +
-            '<td id="email"><a href="mailto:' + email.value + '" style="text-decoration:none;color:#001ba0">' + email.value + '</a></td>\n';
+            '<td id="email"><a href="mailto:' + email.value + '" style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>\n';
     }
 
     if (web.value) {
@@ -98,7 +98,7 @@ function englishCode() {
         if (!(webStrChk === 'http')) {
             webStr = 'http://' + web.value;
         }
-        signatureEng += '<td id="website">| <a href="' + webStr + '" style="text-decoration:none;color:#001ba0">' + web.value + '</a></td>\n' +
+        signatureEng += '<td id="website">| <a href="' + webStr + '" style="text-decoration:none;color:#1a0dab">' + web.value + '</a></td>\n' +
         '</tr>\n';
     }
 
@@ -144,7 +144,7 @@ function japaneseCode() {
     }
 
     if (address.value) {
-        signatureJpn += '<td><a href="https://www.google.co.jp/maps/place/' + address.value + '" style="text-decoration:none;color:#001ba0">' + address.value + '</a></td>\n' +
+        signatureJpn += '<td><a href="https://www.google.co.jp/maps/place/' + address.value + '" style="text-decoration:none;color:#1a0dab">' + address.value + '</a></td>\n' +
         '</tr>\n';
     }
 
@@ -153,7 +153,7 @@ function japaneseCode() {
         var phoneNumCha = convertToAnchorTag(phoneNum);
         signatureJpn += '<tr style="width:max-content">\n' +
             '<td style=text-align:left>Tel</td>\n' +
-            '<td><a href="tel:' + phoneNumCha + '" style="text-decoration:none;color:#001ba0">' + phone.value + '</a></td>\n' +
+            '<td><a href="tel:' + phoneNumCha + '" style="text-decoration:none;color:#1a0dab">' + phone.value + '</a></td>\n' +
             '</tr>\n';
     }
 
@@ -162,7 +162,7 @@ function japaneseCode() {
         var mobileNumCha = convertToAnchorTag(mobileNum);
         signatureJpn += '<tr style="width:max-content">\n' +
             '<td style=text-align:left>Mobile</td>\n' +
-            '<td><a href="tel:' + mobileNumCha + '" style="text-decoration:none;color:#001ba0">' + mobile.value + '</a></td>\n' +
+            '<td><a href="tel:' + mobileNumCha + '" style="text-decoration:none;color:#1a0dab">' + mobile.value + '</a></td>\n' +
             '</tr>\n';
     }
 
@@ -176,7 +176,7 @@ function japaneseCode() {
     if (email.value) {
         signatureJpn += '<tr style="width:max-content">\n' +
             '<td style=text-align:left>Email</td>\n' +
-            '<td><a href=mailto:' + email.value + ' style="text-decoration:none;color:#001ba0">' + email.value + '</a></td>\n' +
+            '<td><a href=mailto:' + email.value + ' style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>\n' +
             '</tr>\n';
     }
 
@@ -188,7 +188,7 @@ function japaneseCode() {
         }
         signatureJpn += '<tr style="width:max-content">\n' +
             '<td style=text-align:left>URL</td>\n' +
-            '<td><a href=' + webStr + ' style="text-decoration:none;color:#001ba0">' + web.value + '</a></td>\n' +
+            '<td><a href=' + webStr + ' style="text-decoration:none;color:#1a0dab">' + web.value + '</a></td>\n' +
             '</tr>\n';
     }
 
