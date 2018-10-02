@@ -22,14 +22,12 @@ function create() {
         code.value = signatureJpn;
         view.innerHTML = signatureJpn;
         code.select();
-        document.execCommand('copy');
     }
     else {
         englishCode();
         code.value = signatureEng;
         view.innerHTML = signatureEng;
         code.select();
-        document.execCommand('copy');
     }
 }
 
