@@ -36,11 +36,11 @@ function englishCode() {
     signatureEng = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><br>\n' +
         '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:0px;border-top:1px solid #333">\n' +
         '<tr><td>\n' +
-        '<table id="info1" style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-collapse:separate">';
+        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-bottom:1px solid #333;border-collapse:separate;padding:5px 0">';
     
     if (name.value) {
         signatureEng += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
-        '<td colspan="2" style="padding:5px 0">' + name.value + '</td>\n' +
+        '<td colspan="2">' + name.value + '</td>\n' +
         '</tr>\n';    
     }
     if (position.value) {
@@ -118,11 +118,11 @@ function englishCode() {
 
 function japaneseCode() {
     signatureJpn = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><br>\n' +
-        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-collapse:separate">\n';
+        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-bottom:1px solid #333;border-collapse:separate;padding:5px 0">\n';
 
     if (company.value) {
         signatureJpn += '<tr id=campany style="width:max-content">\n' +
-            '<td colspan="2" style="padding-top:5px">' + company.value;
+            '<td colspan="2">' + company.value;
     }
 
     if (position.value) {
