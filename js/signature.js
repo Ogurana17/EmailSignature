@@ -34,9 +34,9 @@ function create() {
 
 function englishCode() {
     signatureEng = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><br>\n' +
-        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:0px;border-top:1px solid #333">\n' +
+        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-bottom:1px solid #333;border-collapse:separate;padding:5px 0">\n' +
         '<tr><td>\n' +
-        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-bottom:1px solid #333;border-collapse:separate;padding:5px 0">';
+        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-collapse:separate">';
     
     if (name.value) {
         signatureEng += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
