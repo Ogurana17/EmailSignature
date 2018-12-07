@@ -19,14 +19,14 @@ function create() {
 
     if (style[0].checked) {
         japaneseCode();
-        code.value = signatureJpn;
-        view.innerHTML = signatureJpn;
+        code.value = signatureEng;
+        view.innerHTML = signatureEng;
         code.select();
     }
     else {
         englishCode();
-        code.value = signatureEng;
-        view.innerHTML = signatureEng;
+        code.value = signatureJpn;
+        view.innerHTML = signatureJpn;
         code.select();
     }
 }
@@ -34,7 +34,7 @@ function create() {
 
 function englishCode() {
     signatureEng = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><br>\n' +
-        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-bottom:1px solid #333;border-collapse:separate;padding:5px 0">\n' +
+        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-bottom:1px solid #333;border-collapse:separate;padding:5px 0;margin:6px 0">\n' +
         '<tr><td>\n' +
         '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:0;border-collapse:separate">';
     
@@ -119,7 +119,7 @@ function englishCode() {
 
 function japaneseCode() {
     signatureJpn = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><br>\n' +
-        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-bottom:1px solid #333;border-collapse:separate;padding:5px 0">\n';
+        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-bottom:1px solid #333;border-collapse:separate;padding:5px 0;margin:6px 0">\n';
 
     if (company.value) {
         signatureJpn += '<tr id=campany style="width:max-content">\n' +
