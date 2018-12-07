@@ -60,7 +60,8 @@ function englishCode() {
         var phoneNumCha = convertToAnchorTag(phoneNum);
         signatureEng += '<tr id="phone">\n' +
         '<td>Phone: </td>\n' +
-        '<td><a href="tel:' + phoneNumCha + '" style="text-decoration:none;color:#1a0dab">' + phone.value + '</a></td>\n' +
+        //'<td><a href="tel:' + phoneNumCha + '" style="text-decoration:none;color:#1a0dab">' + phone.value + '</a></td>\n' +
+        '<td>' + phone.value + '</td>\n' +
         '</tr>\n';
     }
 
@@ -69,7 +70,8 @@ function englishCode() {
         var mobileNumCha = convertToAnchorTag(mobileNum);
         signatureEng += '<tr id="mobile">\n' +
         '<td>Mobile: </td>\n' +
-        '<td><a href="tel:' + mobileNumCha + '" style="text-decoration:none;color:#1a0dab">' + mobile.value + '</a></td>\n' +
+        //'<td><a href="tel:' + mobileNumCha + '" style="text-decoration:none;color:#1a0dab">' + mobile.value + '</a></td>\n' +
+        '<td>' + mobile.value + '</td>\n' +
         '</tr>\n';
     }
 
@@ -87,16 +89,18 @@ function englishCode() {
 
     if (email.value) {
         signatureEng += '<tr id="email_website" style="padding:5px 0 0 0 ">\n' +
-            '<td id="email"><a href="mailto:' + email.value + '" style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>\n';
+            //'<td id="email"><a href="mailto:' + email.value + '" style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>\n';
+            '<td id="email">' + email.value + '</td>\n';
     }
 
     if (web.value) {
-        var webStr = web.value;
-        var webStrChk = webStr.substr(0, 4);
-        if (!(webStrChk === 'http')) {
-            webStr = 'http://' + web.value;
-        }
-        signatureEng += '<td id="website">| <a href="' + webStr + '" style="text-decoration:none;color:#1a0dab">' + web.value + '</a></td>\n' +
+        //var webStr = web.value;
+        //var webStrChk = webStr.substr(0, 4);
+        //if (!(webStrChk === 'http')) {
+        //    webStr = 'http://' + web.value;
+        //}
+        //signatureEng += '<td id="website">| <a href="' + webStr + '" style="text-decoration:none;color:#1a0dab">' + web.value + '</a></td>\n' +
+        signatureEng += '<td id="website">| ' + web.value + '</td>\n' +
         '</tr>\n';
     }
 
@@ -151,7 +155,8 @@ function japaneseCode() {
         var phoneNumCha = convertToAnchorTag(phoneNum);
         signatureJpn += '<tr style="width:max-content">\n' +
             '<td style=text-align:left>Tel</td>\n' +
-            '<td><a href="tel:' + phoneNumCha + '" style="text-decoration:none;color:#1a0dab">' + phone.value + '</a></td>\n' +
+            //'<td><a href="tel:' + phoneNumCha + '" style="text-decoration:none;color:#1a0dab">' + phone.value + '</a></td>\n' +
+            '<td>' + phone.value + '</td>\n' +
             '</tr>\n';
     }
 
@@ -160,7 +165,8 @@ function japaneseCode() {
         var mobileNumCha = convertToAnchorTag(mobileNum);
         signatureJpn += '<tr style="width:max-content">\n' +
             '<td style=text-align:left>Mobile</td>\n' +
-            '<td><a href="tel:' + mobileNumCha + '" style="text-decoration:none;color:#1a0dab">' + mobile.value + '</a></td>\n' +
+            //'<td><a href="tel:' + mobileNumCha + '" style="text-decoration:none;color:#1a0dab">' + mobile.value + '</a></td>\n' +
+            '<td>' + mobile.value + '</td>\n' +
             '</tr>\n';
     }
 
@@ -174,19 +180,21 @@ function japaneseCode() {
     if (email.value) {
         signatureJpn += '<tr style="width:max-content">\n' +
             '<td style=text-align:left>Email</td>\n' +
-            '<td><a href=mailto:' + email.value + ' style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>\n' +
+            //'<td><a href=mailto:' + email.value + ' style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>\n' +
+            '<td>' + email.value + '</td>\n' +
             '</tr>\n';
     }
 
     if (web.value) {
-        var webStr = web.value;
-        var webStrChk = webStr.substr(0, 4);
-        if (!(webStrChk === 'http')) {
-            webStr = 'http://' + web.value;
-        }
+        //var webStr = web.value;
+        //var webStrChk = webStr.substr(0, 4);
+        //if (!(webStrChk === 'http')) {
+        //    webStr = 'http://' + web.value;
+        //}
         signatureJpn += '<tr style="width:max-content">\n' +
             '<td style=text-align:left>URL</td>\n' +
-            '<td><a href=' + webStr + ' style="text-decoration:none;color:#1a0dab">' + web.value + '</a></td>\n' +
+            //'<td><a href=' + webStr + ' style="text-decoration:none;color:#1a0dab">' + web.value + '</a></td>\n' +
+            '<td>' + web.value + '</td>\n' +
             '</tr>\n';
     }
 
