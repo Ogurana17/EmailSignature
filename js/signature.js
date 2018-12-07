@@ -146,7 +146,8 @@ function japaneseCode() {
     }
 
     if (address.value) {
-        signatureJpn += '<td><a href="https://www.google.co.jp/maps/place/' + address.value + '" style="text-decoration:none;color:#1a0dab">' + address.value + '</a></td>\n' +
+        //signatureJpn += '<td><a href="https://www.google.co.jp/maps/place/' + address.value + '" style="text-decoration:none;color:#1a0dab">' + address.value + '</a></td>\n' +
+        signatureJpn += '<td>' + address.value + '</td>\n' +
         '</tr>\n';
     }
 
