@@ -59,17 +59,20 @@ function englishCode() {
         var phoneNum = phone.value;
         var phoneNumCha = convertToAnchorTag(phoneNum);
         signatureEng += '<tr id="phone">\n' +
-        '<td>Phone: \n' +
-        phone.value + '</td>\n';
+        'Phone: \n' +
+        phone.value + '\n';
     }
 
     if (mobile.value) {
         var mobileNum = mobile.value;
         var mobileNumCha = convertToAnchorTag(mobileNum);
-        signatureEng += 
-        '<td> | Mobile: \n' +
-        mobile.value + '</td>\n' +
-        '</tr>\n';
+        if (phone.value !== "") {
+            signatureEng += ' | Mobile: \n' + mobile.value + '\n';
+        }
+        else {
+            signatureEng += 'Mobile: \n' + mobile.value + '\n';
+        }
+        signatureEng += '</tr>\n';
     }
 
     if (fax.value) {
@@ -87,7 +90,7 @@ function englishCode() {
     if (email.value) {
         signatureEng += '<tr id="email_website" style="padding:5px 0 0 0 ">\n' +
             //'<td id="email"><a href="mailto:' + email.value + '" style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>\n';
-            '<td id="email">' + email.value + '</td>\n';
+            email.value + '\n';
     }
 
     if (web.value) {
@@ -97,8 +100,13 @@ function englishCode() {
         //    webStr = 'http://' + web.value;
         //}
         //signatureEng += '<td id="website">| <a href="' + webStr + '" style="text-decoration:none;color:#1a0dab">' + web.value + '</a></td>\n' +
-        signatureEng += '<td id="website">| ' + web.value + '</td>\n' +
-        '</tr>\n';
+        if (email.value !== "") {
+            signatureEng += ' | ' + web.value + '\n';
+        }
+        else {
+            signatureEng += web.value + '\n';
+        }
+        signatureEng += '</tr>\n';
     }
 
     if (address.value) {
