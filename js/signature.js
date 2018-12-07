@@ -59,26 +59,23 @@ function englishCode() {
         var phoneNum = phone.value;
         var phoneNumCha = convertToAnchorTag(phoneNum);
         signatureEng += '<tr id="phone">\n' +
-        '<td>Phone: </td>\n' +
-        //'<td><a href="tel:' + phoneNumCha + '" style="text-decoration:none;color:#1a0dab">' + phone.value + '</a></td>\n' +
-        '<td>' + phone.value + '</td>\n' +
-        '</tr>\n';
+        '<td>Phone: \n' +
+        phone.value + '</td>\n';
     }
 
     if (mobile.value) {
         var mobileNum = mobile.value;
         var mobileNumCha = convertToAnchorTag(mobileNum);
-        signatureEng += '<tr id="mobile">\n' +
-        '<td>Mobile: </td>\n' +
-        //'<td><a href="tel:' + mobileNumCha + '" style="text-decoration:none;color:#1a0dab">' + mobile.value + '</a></td>\n' +
-        '<td>' + mobile.value + '</td>\n' +
+        signatureEng += 
+        '<td> | Mobile: \n' +
+        mobile.value + '</td>\n' +
         '</tr>\n';
     }
 
     if (fax.value) {
         signatureEng += '<tr id="fax">\n' +
-        '<td>Fax: </td>\n' +
-        '<td>' + fax.value + '</td>\n' +
+        '<td>Fax: \n' +
+        fax.value + '</td>\n' +
         '</tr>\n';
     }
 
