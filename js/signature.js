@@ -18,13 +18,13 @@ function create() {
     var style = document.getElementsByName('optionsRadios');
 
     if (style[0].checked) {
-        japaneseCode();
+        englishCode();
         code.value = signatureEng;
         view.innerHTML = signatureEng;
         code.select();
     }
     else {
-        englishCode();
+        japaneseCode();
         code.value = signatureJpn;
         view.innerHTML = signatureJpn;
         code.select();
