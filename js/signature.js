@@ -106,7 +106,7 @@ function englishCode() {
     }
 
     if (email.value == "") {
-        signatureEng += '<tr id="email_website" style="padding:5px 0 0 0 ">\n';
+        signatureEng += '<tr id="email_website" style="padding:5px 0 0 0 ">\n<td>\n';
     }
 
     if (web.value) {
@@ -117,19 +117,27 @@ function englishCode() {
         //}
         //signatureEng += '<td id="website">| <a href="' + webStr + '" style="text-decoration:none;color:#1a0dab">' + web.value + '</a></td>\n' +
         if (email.value) {
-            signatureEng += ' | ' + web.value + '\n';
+            signatureEng += ' | ' + web.value + '</td>\n';
         }
         else {
-            signatureEng += web.value + '\n';
+            signatureEng += web.value + '</td>\n';
         }
         signatureEng += '</tr>\n';
     }
 
     if (address.value) {
         signatureEng += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n' +
-        '<td colspan="2">' + address.value;
+        '<td>' + address.value;
+    }
+
+    if (zipCode.value == "") {
+        signatureEng += '</tr>\n';
     }
     
+    if (address.value == "") {
+        signatureEng += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n';
+    }
+
     if (zipCode.value) {
         signatureEng +=' ' + zipCode.value + '</td >\n' +
         '</tr>\n';
