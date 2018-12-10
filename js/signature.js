@@ -61,17 +61,16 @@ function englishCode() {
         signatureEng += '<tr id="phone">\n' +
         '<td>Phone: \n' +
         phone.value + '\n';
-    }
-
-    if (mobile.value == "") {
-        signatureEng += '</td>\n</tr>\n';
-    }
-
-    if (phone.value == "") {
-        signatureEng += '<tr id="mobile">\n<td>';
+        
+        if (mobile.value == "") {
+            signatureEng += '</td>\n</tr>\n';
+        }
     }
 
     if (mobile.value) {
+        if (phone.value == "") {
+            signatureEng += '<tr id="mobile">\n<td>';
+        }
         var mobileNum = mobile.value;
         var mobileNumCha = convertToAnchorTag(mobileNum);
         if (phone.value) {
@@ -96,20 +95,18 @@ function englishCode() {
         '<table id="info2" style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-collapse:separate">\n';
 
     if (email.value) {
-        signatureEng += '<tr id="email_website" style="padding:5px 0 0 0 ">\n' +
+        signatureEng += '<tr id="email_website" style="padding:5px 0 0 0 ">\n<td>\n' +
             //'<td id="email"><a href="mailto:' + email.value + '" style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>\n';
             email.value + '\n';
-    }
-
-    if (web.value == "") {
-        signatureEng += '</tr>\n';
-    }
-
-    if (email.value == "") {
-        signatureEng += '<tr id="email_website" style="padding:5px 0 0 0 ">\n<td>\n';
+        if (web.value == "") {
+            signatureEng += '</tr>\n';
+        }
     }
 
     if (web.value) {
+        if (email.value == "") {
+            signatureEng += '<tr id="email_website" style="padding:5px 0 0 0 ">\n<td>\n';
+        }
         //var webStr = web.value;
         //var webStrChk = webStr.substr(0, 4);
         //if (!(webStrChk === 'http')) {
@@ -127,18 +124,16 @@ function englishCode() {
 
     if (address.value) {
         signatureEng += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n' +
-        '<td>' + address.value;
-    }
-
-    if (zipCode.value == "") {
-        signatureEng += '</tr>\n';
-    }
-    
-    if (address.value == "") {
-        signatureEng += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n';
+            '<td>' + address.value;
+        if (zipCode.value == "") {
+            signatureEng += '</tr>\n';
+        }
     }
 
     if (zipCode.value) {
+        if (address.value == "") {
+            signatureEng += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n<td>\n';
+        }
         signatureEng +=' ' + zipCode.value + '</td >\n' +
         '</tr>\n';
     }
