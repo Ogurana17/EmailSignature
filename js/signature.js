@@ -40,7 +40,7 @@ function englishCode() {
     
     if (name.value) {
         signatureEng += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
-        '<td colspan="2">' + name.value + '</td>\n' +
+        '<td>' + name.value + '</td>\n' +
         '</tr>\n';    
     }
     if (position.value) {
@@ -59,18 +59,25 @@ function englishCode() {
         var phoneNum = phone.value;
         var phoneNumCha = convertToAnchorTag(phoneNum);
         signatureEng += '<tr id="phone">\n' +
-        'Phone: \n' +
+        '<td>Phone: \n' +
         phone.value + '\n';
+    }
+    if (mobile.value == "") {
+        signatureEng += '</td>\n</tr>\n';
+    }
+
+    if (phone.value == "") {
+        signatureEng += '<tr id="mobile">\n<td>';
     }
 
     if (mobile.value) {
         var mobileNum = mobile.value;
         var mobileNumCha = convertToAnchorTag(mobileNum);
-        if (phone.value !== "") {
+        if (phone.value) {
             signatureEng += ' | Mobile: \n' + mobile.value + '\n';
         }
         else {
-            signatureEng += 'Mobile: \n' + mobile.value + '\n';
+            signatureEng += 'Mobile: \n' + mobile.value + '</td>\n';
         }
         signatureEng += '</tr>\n';
     }
@@ -93,6 +100,14 @@ function englishCode() {
             email.value + '\n';
     }
 
+    if (web.value == "") {
+        signatureEng += '</tr>\n';
+    }
+
+    if (email.value == "") {
+        signatureEng += '<tr id="email_website" style="padding:5px 0 0 0 ">\n';
+    }
+
     if (web.value) {
         //var webStr = web.value;
         //var webStrChk = webStr.substr(0, 4);
@@ -100,7 +115,7 @@ function englishCode() {
         //    webStr = 'http://' + web.value;
         //}
         //signatureEng += '<td id="website">| <a href="' + webStr + '" style="text-decoration:none;color:#1a0dab">' + web.value + '</a></td>\n' +
-        if (email.value !== "") {
+        if (email.value) {
             signatureEng += ' | ' + web.value + '\n';
         }
         else {
