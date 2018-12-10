@@ -62,6 +62,7 @@ function englishCode() {
         '<td>Phone: \n' +
         phone.value + '\n';
     }
+
     if (mobile.value == "") {
         signatureEng += '</td>\n</tr>\n';
     }
@@ -74,7 +75,7 @@ function englishCode() {
         var mobileNum = mobile.value;
         var mobileNumCha = convertToAnchorTag(mobileNum);
         if (phone.value) {
-            signatureEng += ' | Mobile: \n' + mobile.value + '\n';
+            signatureEng += ' | Mobile: \n' + mobile.value + '</td>\n';
         }
         else {
             signatureEng += 'Mobile: \n' + mobile.value + '</td>\n';
