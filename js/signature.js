@@ -45,13 +45,13 @@ function englishCode() {
     }
     if (position.value) {
         signatureEng += '<tr id="position">\n' +
-        '<td colspan="2">' + position.value + '</td>\n' +
+        '<td>' + position.value + '</td>\n' +
         '</tr>\n';
     }
 
     if (company.value) {
         signatureEng += '<tr id="job_company">\n' +
-        '<td colspan="2">' + company.value + '</td>\n' +
+        '<td>' + company.value + '</td>\n' +
         '</tr>\n';
     }
     
