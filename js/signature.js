@@ -33,10 +33,8 @@ function create() {
 
 
 function englishCode() {
-    signatureEng = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><br>\n' +
-        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-bottom:1px solid #333;border-collapse:separate;padding:5px 0;margin:6px 0">\n' +
-        '<tr><td>\n' +
-        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:0;border-collapse:separate">';
+    signatureEng = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">--\n' +
+        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-bottom:1px solid #333;border-collapse:separate;padding:5px 0;margin:6px 0">\n';
     
     if (name.value) {
         signatureEng += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
@@ -89,11 +87,6 @@ function englishCode() {
         '</tr>\n';
     }
 
-    signatureEng += '</table>\n' +
-        '</td></tr>\n' +
-        '<tr><td>\n' +
-        '<table id="info2" style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-collapse:separate">\n';
-
     if (email.value) {
         signatureEng += '<tr id="email_website" style="padding:5px 0 0 0 ">\n<td>\n' +
             //'<td id="email"><a href="mailto:' + email.value + '" style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>\n';
@@ -138,9 +131,7 @@ function englishCode() {
         '</tr>\n';
     }
 
-    signatureEng += '</table>\n' +
-        '</td></tr>\n' +
-        '</table>';
+    signatureEng += '</table>\n<br>';
 }
 
 
@@ -223,7 +214,7 @@ function japaneseCode() {
             '</tr>\n';
     }
 
-    signatureJpn += '</table>';
+    signatureJpn += '</table>\n<br>';
 }
 
 // http://www.de2p.co.jp/tech/html-css-js/tel-to-anchor-tag/
