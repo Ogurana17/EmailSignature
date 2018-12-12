@@ -1,4 +1,4 @@
-var signatureEng = '';
+var signatureWst = '';
 var signatureJpn = '';
 const name = document.getElementById('inputName');
 const position = document.getElementById('inputPosition');
@@ -19,9 +19,9 @@ function create() {
     var style = document.getElementsByName('optionsRadios');
 
     if (style[0].checked) {
-        englishCode();
-        code.value = signatureEng;
-        view.innerHTML = signatureEng;
+        WesternCode();
+        code.value = signatureWst;
+        view.innerHTML = signatureWst;
         code.select();
     }
     else {
@@ -33,23 +33,23 @@ function create() {
 }
 
 
-function englishCode() {
-    signatureEng = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">--\n' +
+function WesternCode() {
+    signatureWst = '<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">--\n' +
         '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-bottom:1px solid #333;border-collapse:separate;padding:5px 0;margin:6px 0">\n';
     
     if (name.value) {
-        signatureEng += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
+        signatureWst += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
         '<td>' + name.value + '</td>\n' +
         '</tr>\n';    
     }
     if (position.value) {
-        signatureEng += '<tr id="position">\n' +
+        signatureWst += '<tr id="position">\n' +
         '<td>' + position.value + '</td>\n' +
         '</tr>\n';
     }
 
     if (company.value) {
-        signatureEng += '<tr id="job_company">\n' +
+        signatureWst += '<tr id="job_company">\n' +
         '<td>' + company.value + '</td>\n' +
         '</tr>\n';
     }
@@ -57,94 +57,94 @@ function englishCode() {
     if (phone.value) {
         var phoneNum = phone.value;
         var phoneNumCha = convertToAnchorTag(phoneNum);
-        signatureEng += '<tr id="phone">\n' +
+        signatureWst += '<tr id="phone">\n' +
         '<td>Phone: \n' +
         phone.value + '\n';
         
         if (mobile.value == "") {
-            signatureEng += '</td>\n</tr>\n';
+            signatureWst += '</td>\n</tr>\n';
         }
     }
 
     if (mobile.value) {
         if (phone.value == "") {
-            signatureEng += '<tr id="mobile">\n<td>';
+            signatureWst += '<tr id="mobile">\n<td>';
         }
         var mobileNum = mobile.value;
         var mobileNumCha = convertToAnchorTag(mobileNum);
         if (phone.value) {
-            signatureEng += ' | Mobile: \n' + mobile.value + '</td>\n';
+            signatureWst += ' | Mobile: \n' + mobile.value + '</td>\n';
         }
         else {
-            signatureEng += 'Mobile: \n' + mobile.value + '</td>\n';
+            signatureWst += 'Mobile: \n' + mobile.value + '</td>\n';
         }
-        signatureEng += '</tr>\n';
+        signatureWst += '</tr>\n';
     }
 
     if (fax.value) {
-        signatureEng += '<tr id="fax">\n' +
+        signatureWst += '<tr id="fax">\n' +
         '<td>Fax: \n' +
         fax.value + '</td>\n' +
         '</tr>\n';
     }
 
     if (email.value) {
-        signatureEng += '<tr id="email_website" style="padding:5px 0 0 0 ">\n<td>\n' +
+        signatureWst += '<tr id="email_website" style="padding:5px 0 0 0 ">\n<td>\n' +
             //'<td id="email"><a href="mailto:' + email.value + '" style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>\n';
             email.value + '\n';
         if (web.value == "") {
-            signatureEng += '</tr>\n';
+            signatureWst += '</tr>\n';
         }
     }
 
     if (web.value) {
         if (email.value == "") {
-            signatureEng += '<tr id="email_website" style="padding:5px 0 0 0 ">\n<td>\n';
+            signatureWst += '<tr id="email_website" style="padding:5px 0 0 0 ">\n<td>\n';
         }
         //var webStr = web.value;
         //var webStrChk = webStr.substr(0, 4);
         //if (!(webStrChk === 'http')) {
         //    webStr = 'http://' + web.value;
         //}
-        //signatureEng += '<td id="website">| <a href="' + webStr + '" style="text-decoration:none;color:#1a0dab">' + web.value + '</a></td>\n' +
+        //signatureWst += '<td id="website">| <a href="' + webStr + '" style="text-decoration:none;color:#1a0dab">' + web.value + '</a></td>\n' +
         if (email.value) {
-            signatureEng += ' | ' + web.value + '</td>\n';
+            signatureWst += ' | ' + web.value + '</td>\n';
         }
         else {
-            signatureEng += web.value + '</td>\n';
+            signatureWst += web.value + '</td>\n';
         }
-        signatureEng += '</tr>\n';
+        signatureWst += '</tr>\n';
     }
 
     if (address.value) {
-        signatureEng += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n' +
+        signatureWst += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n' +
             '<td>' + address.value;
         if (zipCode.value == "") {
-            signatureEng += '</tr>\n';
+            signatureWst += '</tr>\n';
         }
     }
 
     if (zipCode.value) {
         if (address.value == "") {
-            signatureEng += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n<td>\n';
+            signatureWst += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n<td>\n';
         }
-        signatureEng += ' ' + zipCode.value;
+        signatureWst += ' ' + zipCode.value;
     }
 
     if (country.value) {
         if (address.value == "") {
-            signatureEng += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n<td>\n';
+            signatureWst += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n<td>\n';
         }
-        signatureEng += ' ' + country.value + '</td>\n' +
+        signatureWst += ' ' + country.value + '</td>\n' +
         '</tr>\n';
     }
 
-    signatureEng += '</table>\n<br>';
+    signatureWst += '</table>\n<br>';
 }
 
 
 function japaneseCode() {
-    signatureJpn = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">--\n' +
+    signatureJpn = '<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">--\n' +
         '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-bottom:1px solid #333;border-collapse:separate;padding:5px 0;margin:6px 0">\n';
     
     if (name.value) {
