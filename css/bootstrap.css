@@ -299,9 +299,9 @@ th {
 
 .container {
   padding-right: 15px;
-  padding-right: calc(constant(safe-area-inset-right) + 2.5%);/* iPhone X向け記述 */
+  padding-right: calc(constant(safe-area-inset-right) + 15px);/* iPhone X向け記述 */
   padding-left: 15px;
-  padding-left: calc(constant(safe-area-inset-right) + 2.5%);/* iPhone X向け記述 */
+  padding-left: calc(constant(safe-area-inset-right) + 15px);/* iPhone X向け記述 */
   margin-right: auto;
   margin-left: auto;
 }
