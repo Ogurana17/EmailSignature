@@ -127,7 +127,7 @@ function englishCode() {
         if (address.value == "") {
             signatureEng += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n<td>\n';
         }
-        signatureEng +=' ' + zipCode.value + '</td >\n' +
+        signatureEng +=' ' + zipCode.value + '</td>\n' +
         '</tr>\n';
     }
 
