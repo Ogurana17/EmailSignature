@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+	<title>ChangeLog - Email Signature Tool</title>
+
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<style type="text/css">
+	body { padding-top: 80px; }
+	@media ( min-width: 768px ) {
+		#banner {
+			min-height: 300px;
+			border-bottom: none;
+		}
+		.bs-docs-section {
+			margin-top: 8em;
+		}
+		.bs-component {
+			position: relative;
+		}
+		.bs-component .modal {
+			position: relative;
+			top: auto;
+			right: auto;
+			left: auto;
+			bottom: auto;
+			z-index: 1;
+			display: block;
+		}
+		.bs-component .modal-dialog {
+			width: 90%;
+		}
+		.bs-component .popover {
+			position: relative;
+			display: inline-block;
+			width: 220px;
+			margin: 20px;
+		}
+		.nav-tabs {
+			margin-bottom: 15px;
+		}
+		.progress {
+			margin-bottom: 10px;
+		}
+		.panel-body {
+			word-wrap: break-word;
+		}
+	}
+	</style>
+
+	<!--[if lt IE 9]>
+		<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+<header>
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="../index.html" class="navbar-brand">Email Signature Tool</a>
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="navbar-main">
+				<ul class="nav navbar-nav">
+					<li><a href="../">Top</a></li>
+					<li><a href="">Change Log</a></li>
+					<li><a href="legacy.html">Legacy</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Thanks <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="//github.com/raryosu/rin">Rin - Hagihara Ryosuke</a></li>
+							<li><a href="http://www.de2p.co.jp/tech/html-css-js/tel-to-anchor-tag/">PhoneNumberFunction - de2p</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="container">
+
+    <div class="row">
+		<div class="col-lg-12">
+			<div class="page-header">
+				<h1 id="indicators">ChangeLog</h1>
+			</div>
+		</div>
+	</div>
+
+	<!-- Forms
+	================================================== -->
+
+	<div class="row">
+		<div class="col-lg-10">
+			<div class="bs-component">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">2018/12/12</h3>
+					</div>
+					<div class="panel-body">
+						<h2 id="indicators">Add Legacy to menu</h2>
+						<p>Newly created a page to keep the past version public.</p>
+						<h2 id="indicators">Add country to input item</h2>
+						<p>I added a country name at the end of the address.</p>
+					</div>
+				</div>
+			</div>
+			<div class="bs-component">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">2018/12/11</h3>
+					</div>
+					<div class="panel-body">
+						<h2 id="indicators">Simple code</h2>
+						<p>HTMLCode created from the tool has been simplified.</p>
+						<h2 id="indicators">Add "--" Above the Signature</h2>
+						<p>I followed the custom of separating the body of the e-mail and the signature.</p>
+					</div>
+				</div>
+			</div>
+			<div class="bs-component">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">2018/12/10</h3>
+					</div>
+					<div class="panel-body">
+						<h2 id="indicators">Bug fix</h2>
+						<p>The phone number and the mobile phone number were displayed in an unexpected position, so I fixed it.</p>
+					</div>
+				</div>
+			</div>
+			<div class="bs-component">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">2018/12/7</h3>
+					</div>
+					<div class="panel-body">
+						<h2 id="indicators">Delete Signature Hyperlink</h2>
+						<p>Changed so that the signature looks beautiful when receiving and displaying the mail created and sent in HTML format in plain text format.</p>
+						<p>However, we changed to a policy to have mailer process the mail address etc. into hyperlink, so it may not be hyperlink depending on the mailer.</p>
+						<h2 id="indicators">Important!</h2>
+						<p>Changed the standard signature style to "Western".</p>
+					</div>
+				</div>
+			</div>
+			<div class="bs-component">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">2018/11/27</h3>
+					</div>
+					<div class="panel-body">
+						<h2 id="indicators">Add Underline to Signature</h2>
+						<p>I added an underline to the line of the signature that was only on the upper line. By this, it became two upper and lower lines.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="small">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 text-center copyright">
+				&copy; 2018 Naoki Ogura
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	$('.bs-component [data-toggle="popover"]').popover();
+	$('.bs-component [data-toggle="tooltip"]').tooltip();
+</script>
+
+</body>
+</html>
