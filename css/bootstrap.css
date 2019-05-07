@@ -8762,6 +8762,6 @@ footer {
   }
 
   table tr:nth-child(2n) {
-      background-color: #3b3d3f
+      background-color: #3b3d3f;
   }
 }
