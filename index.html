@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,46 +10,57 @@
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<style type="text/css">
-	body { padding-top: 80px; }
-	@media ( min-width: 768px ) {
-		#banner {
-			min-height: 300px;
-			border-bottom: none;
+		body {
+			padding-top: 80px;
 		}
-		.bs-docs-section {
-			margin-top: 8em;
+
+		@media (min-width: 768px) {
+			#banner {
+				min-height: 300px;
+				border-bottom: none;
+			}
+
+			.bs-docs-section {
+				margin-top: 8em;
+			}
+
+			.bs-component {
+				position: relative;
+			}
+
+			.bs-component .modal {
+				position: relative;
+				top: auto;
+				right: auto;
+				left: auto;
+				bottom: auto;
+				z-index: 1;
+				display: block;
+			}
+
+			.bs-component .modal-dialog {
+				width: 90%;
+			}
+
+			.bs-component .popover {
+				position: relative;
+				display: inline-block;
+				width: 220px;
+				margin: 20px;
+			}
+
+			.nav-tabs {
+				margin-bottom: 15px;
+			}
+
+			.progress {
+				margin-bottom: 10px;
+			}
+
+			.panel-body {
+				word-wrap: break-word;
+			}
 		}
-		.bs-component {
-			position: relative;
-		}
-		.bs-component .modal {
-			position: relative;
-			top: auto;
-			right: auto;
-			left: auto;
-			bottom: auto;
-			z-index: 1;
-			display: block;
-		}
-		.bs-component .modal-dialog {
-			width: 90%;
-		}
-		.bs-component .popover {
-			position: relative;
-			display: inline-block;
-			width: 220px;
-			margin: 20px;
-		}
-		.nav-tabs {
-			margin-bottom: 15px;
-		}
-		.progress {
-			margin-bottom: 10px;
-		}
-		.panel-body {
-			word-wrap: break-word;
-		}
-	}
 	</style>
 
 	<!--[if lt IE 9]>
@@ -57,200 +69,213 @@
 	<![endif]-->
 
 </head>
+
 <body>
 
-<header>
-	<div class="navbar navbar-default navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<a href="" class="navbar-brand">Email Signature Tool</a>
-				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
-			<div class="navbar-collapse collapse" id="navbar-main">
-				<ul class="nav navbar-nav">
-					<li><a href="">Top</a></li>
-					<li><a href="changeLog">Change Log</a></li>
-					<li><a href="legacy">Legacy</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Thanks <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="//github.com/raryosu/rin">Rin - Hagihara Ryosuke</a></li>
-							<li><a href="http://www.de2p.co.jp/tech/html-css-js/tel-to-anchor-tag/">PhoneNumberFunction - de2p</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</header>
-
-<div class="container">
-
-	<div class="page-header" id="banner">
-		<div class="row">
-			<div class="col-lg-8 col-md-7 col-sm-6">
-				<h1>Email Signature Tool</h1>
-				<p class="lead">Makes easy to create beautiful Email signatures.</p>
+	<header>
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="" class="navbar-brand">Email Signature Tool</a>
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="navbar-collapse collapse" id="navbar-main">
+					<ul class="nav navbar-nav">
+						<li><a href="">Top</a></li>
+						<li><a href="changeLog">Change Log</a></li>
+						<li><a href="legacy">Legacy</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false">Thanks <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="//github.com/raryosu/rin">Rin - Hagihara Ryosuke</a></li>
+								<li><a href="http://www.de2p.co.jp/tech/html-css-js/tel-to-anchor-tag/">PhoneNumberFunction
+										- de2p</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
+	</header>
 
-	<!-- Forms
+	<div class="container">
+
+		<div class="page-header" id="banner">
+			<div class="row">
+				<div class="col-lg-8 col-md-7 col-sm-6">
+					<h1>Email Signature Tool</h1>
+					<p class="lead">Makes easy to create beautiful Email signatures.</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Forms
 	================================================== -->
 
-	<div class="row">
-		<div class="col-lg-10">
+		<div class="row">
+			<div class="col-lg-10">
 				<div class="bs-component">
 					<div class="jumbotron">
-					<h1>How use</h1>
-					<ol class="lead">
-						<li>Input Information.</li>
-						<li>Click <b>"Create".</b></li>
-						<li>Copy <b>"Html Code"</b> or <b>"Signature"</b> and paste it to an arbitrary position.</li>		
-					</ol>
-					<p>Completion of a beautiful signature ;-)</p>
+						<h1>How use</h1>
+						<ol class="lead">
+							<li>Input Information.</li>
+							<li>Click <b>"Create".</b></li>
+							<li>Copy <b>"Html Code"</b> or <b>"Signature"</b> and paste it to an arbitrary position.
+							</li>
+						</ol>
+						<p>Completion of a beautiful signature ;-)</p>
 					</div>
 				</div>
 			</div>
-		<div class="col-lg-5">
-			<div class="well bs-component">
-				<div class="form-horizontal">
-					<fieldset>
-						<legend>Information</legend>
-						<div class="form-group">
-							<label for="inputName" class="col-lg-2 control-label">Name</label>
-							<div class="col-lg-10">
-								<input type="text" class="form-control" id="inputName" placeholder="Hoheto Irohani">
+			<div class="col-lg-5">
+				<div class="well bs-component">
+					<div class="form-horizontal">
+						<fieldset>
+							<legend>Information</legend>
+							<div class="form-group">
+								<label for="inputName" class="col-lg-2 control-label">Name</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="inputName" placeholder="Hoheto Irohani">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
+							<div class="form-group">
 								<label for="inputPosition" class="col-lg-2 control-label">Position</label>
 								<div class="col-lg-10">
 									<input type="text" class="form-control" id="inputPosition" placeholder="Foo">
 								</div>
 							</div>
-						<div class="form-group">
-							<label for="inputCompany" class="col-lg-2 control-label">Company</label>
-							<div class="col-lg-10">
-								<input type="text" class="form-control" id="inputCompany" placeholder="Company Inc.">
+							<div class="form-group">
+								<label for="inputCompany" class="col-lg-2 control-label">Company</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="inputCompany"
+										placeholder="Company Inc.">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputPhone" class="col-lg-2 control-label">Phone</label>
-							<div class="col-lg-10">
-								<input type="text" class="form-control" id="inputPhone" placeholder="000-000-0000">
+							<div class="form-group">
+								<label for="inputPhone" class="col-lg-2 control-label">Phone</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="inputPhone" placeholder="000-000-0000">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputMobile" class="col-lg-2 control-label">Mobile</label>
-							<div class="col-lg-10">
-								<input type="text" class="form-control" id="inputMobile" placeholder="000-0000-0000">
+							<div class="form-group">
+								<label for="inputMobile" class="col-lg-2 control-label">Mobile</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="inputMobile"
+										placeholder="000-0000-0000">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputFax" class="col-lg-2 control-label">Fax</label>
-							<div class="col-lg-10">
-								<input type="text" class="form-control" id="inputFax" placeholder="000-000-0000">
+							<div class="form-group">
+								<label for="inputFax" class="col-lg-2 control-label">Fax</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="inputFax" placeholder="000-000-0000">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
+							<div class="form-group">
 								<label for="inputEmail" class="col-lg-2 control-label">Email</label>
 								<div class="col-lg-10">
-									<input type="text" class="form-control" id="inputEmail" placeholder="example@ex.com">
+									<input type="text" class="form-control" id="inputEmail"
+										placeholder="example@ex.com">
 								</div>
 							</div>
-						<div class="form-group">
-							<label for="inputWeb" class="col-lg-2 control-label">Web</label>
-							<div class="col-lg-10">
-								<input type="text" class="form-control" id="inputWeb" placeholder="www.example.com">
+							<div class="form-group">
+								<label for="inputWeb" class="col-lg-2 control-label">Web</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="inputWeb" placeholder="www.example.com">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputAddress" class="col-lg-2 control-label">Address</label>
-							<div class="col-lg-10">
-								<input type="text" class="form-control" id="inputAddress" placeholder="1-2-3 cho, Shi, Ken">
+							<div class="form-group">
+								<label for="inputAddress" class="col-lg-2 control-label">Address</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="inputAddress"
+										placeholder="1-2-3 cho, Shi, Ken">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputAddress" class="col-lg-2 control-label">ZipCode</label>
-							<div class="col-lg-10">
-								<input type="text" class="form-control" id="inputZipCode" placeholder="123-4567">
+							<div class="form-group">
+								<label for="inputAddress" class="col-lg-2 control-label">ZipCode</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="inputZipCode" placeholder="123-4567">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
+							<div class="form-group">
 								<label for="inputAddress" class="col-lg-2 control-label">Country</label>
 								<div class="col-lg-10">
-									<input type="text" class="form-control" id="inputCountry" placeholder="(Western style only)">
+									<input type="text" class="form-control" id="inputCountry"
+										placeholder="(Western style only)">
 								</div>
 							</div>
-						<div class="form-group">
-							<label class="col-lg-2 control-label">Style</label>
-							<div class="col-lg-10">
-								<div class="radio">
-									<label>
-										<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-										Western
-									</label>
-								</div>
-								<div class="radio">
-									<label>
-										<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-										Japanese
-									</label>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">Style</label>
+								<div class="col-lg-10">
+									<div class="radio">
+										<label>
+											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"
+												checked>
+											Western
+										</label>
+									</div>
+									<div class="radio">
+										<label>
+											<input type="radio" name="optionsRadios" id="optionsRadios2"
+												value="option2">
+											Japanese
+										</label>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-lg-10 col-lg-offset-2">
-								<button type="reset" class="btn btn-default">Clear</button>
-								<button type="submit" class="btn btn-primary" id="createBtn" onclick="create()">Create</button>
+							<div class="form-group">
+								<div class="col-lg-10 col-lg-offset-2">
+									<button type="reset" class="btn btn-default">Clear</button>
+									<button type="submit" class="btn btn-primary" id="createBtn"
+										onclick="create()">Create</button>
+								</div>
 							</div>
-						</div>
-					</fieldset>
+						</fieldset>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-lg-5">
-			<div class="bs-component">
-				<div class="panel panel-info">
-					<div class="panel-heading">
-						<h3 class="panel-title">Signature</h3>
+			<div class="col-lg-5">
+				<div class="bs-component">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">Signature</h3>
+						</div>
+						<div class="panel-body" id="outputView"></div>
 					</div>
-					<div class="panel-body" id="outputView"></div>
-				</div>
-				<div class="panel panel-info">
-					<div class="panel-heading">
-						<h3 class="panel-title">HTML Code</h3>
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">HTML Code</h3>
+						</div>
+						<input type="text" class="form-control" id="outputCode">
 					</div>
-					<input type="text" class="form-control" id="outputCode">
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-<footer class="small">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 text-center copyright">
-				&copy; 2018 Naoki Ogura
+	<footer class="small">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 text-center copyright">
+					&copy; 2018 Naoki Ogura
+				</div>
 			</div>
 		</div>
-	</div>
-</footer>
+	</footer>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/signature.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/signature.js"></script>
 
-<script type="text/javascript">
-	$('.bs-component [data-toggle="popover"]').popover();
-	$('.bs-component [data-toggle="tooltip"]').tooltip();
-</script>
+	<script type="text/javascript">
+		$('.bs-component [data-toggle="popover"]').popover();
+		$('.bs-component [data-toggle="tooltip"]').tooltip();
+	</script>
 
 </body>
+
 </html>
