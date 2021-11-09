@@ -35,7 +35,7 @@ function create() {
 
 function WesternCode() {
     signatureWst = '<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">--\n' +
-        '<table style="font-family:sans-serif;font-size:12px;color:#000;border-spacing:5px 0;border-top:1px solid #000;border-bottom:1px solid #000;border-collapse:separate;padding:5px 0;margin:6px 0">\n';
+        '<table style="font-family:sans-serif;font-size:12px;border-spacing:5px 0;border-top:1px solid;border-bottom:1px solid;border-collapse:separate;padding:5px 0;margin:6px 0">\n';
 
     if (name.value) {
         signatureWst += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
@@ -145,7 +145,7 @@ function WesternCode() {
 
 function japaneseCode() {
     signatureJpn = '<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">--\n' +
-        '<table style="font-family:sans-serif;font-size:12px;color:#000;border-spacing:5px 0;border-top:1px solid #000;border-bottom:1px solid #000;border-collapse:separate;padding:5px 0;margin:6px 0">\n';
+        '<table style="font-family:sans-serif;font-size:12px;border-spacing:5px 0;border-top:1px solid;border-bottom:1px solid;border-collapse:separate;padding:5px 0;margin:6px 0">\n';
 
     if (name.value) {
         signatureJpn += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
