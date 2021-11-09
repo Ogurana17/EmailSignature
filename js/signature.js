@@ -35,12 +35,12 @@ function create() {
 
 function WesternCode() {
     signatureWst = '<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">--\n' +
-        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-bottom:1px solid #333;border-collapse:separate;padding:5px 0;margin:6px 0">\n';
-    
+        '<table style="font-family:sans-serif;font-size:12px;color:#000;border-spacing:5px 0;border-top:1px solid #000;border-bottom:1px solid #000;border-collapse:separate;padding:5px 0;margin:6px 0">\n';
+
     if (name.value) {
         signatureWst += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
         '<td>' + name.value + '</td>\n' +
-        '</tr>\n';    
+        '</tr>\n';
     }
     if (position.value) {
         signatureWst += '<tr id="position">\n' +
@@ -53,14 +53,14 @@ function WesternCode() {
         '<td>' + company.value + '</td>\n' +
         '</tr>\n';
     }
-    
+
     if (phone.value) {
         var phoneNum = phone.value;
         var phoneNumCha = convertToAnchorTag(phoneNum);
         signatureWst += '<tr id="phone">\n' +
         '<td>Phone: \n' +
         phone.value + '\n';
-        
+
         if (mobile.value == "") {
             signatureWst += '</td>\n</tr>\n';
         }
@@ -145,12 +145,12 @@ function WesternCode() {
 
 function japaneseCode() {
     signatureJpn = '<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">--\n' +
-        '<table style="font-family:sans-serif;font-size:12px;color:#333;border-spacing:5px 0;border-top:1px solid #333;border-bottom:1px solid #333;border-collapse:separate;padding:5px 0;margin:6px 0">\n';
-    
+        '<table style="font-family:sans-serif;font-size:12px;color:#000;border-spacing:5px 0;border-top:1px solid #000;border-bottom:1px solid #000;border-collapse:separate;padding:5px 0;margin:6px 0">\n';
+
     if (name.value) {
         signatureJpn += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
         '<td>' + name.value + '</td>\n' +
-        '</tr>\n';    
+        '</tr>\n';
     }
     if (position.value) {
         signatureJpn += '<tr id="position">\n' +
@@ -163,14 +163,14 @@ function japaneseCode() {
         '<td>' + company.value + '</td>\n' +
         '</tr>\n';
     }
-    
+
     if (phone.value) {
         var phoneNum = phone.value;
         var phoneNumCha = convertToAnchorTag(phoneNum);
         signatureJpn += '<tr id="phone">\n' +
         '<td>Phone: \n' +
         phone.value + '\n';
-        
+
         if (mobile.value == "") {
             signatureJpn += '</td>\n</tr>\n';
         }
