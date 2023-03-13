@@ -35,22 +35,22 @@ function create() {
 
 function WesternCode() {
     signatureWst = '<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">--\n' +
-        '<table style="font-family:sans-serif;font-size:12px;border-spacing:5px 0;border-top:1px solid;border-bottom:1px solid;border-collapse:separate;padding:5px 0;margin:6px 0">\n';
+        '<!--[if mso]> <style type="text/css"> table{mso-table-lspace: 0pt; mso-table-rspace: 0pt;}</style><![end if]--> <table style=" font-family: sans-serif; font-size: 12px; border-top: 1px solid; border-bottom: 1px solid; border-collapse: collapse; " >\n';
 
     if (name.value) {
-        signatureWst += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
-        '<td>' + name.value + '</td>\n' +
+        signatureWst += '<tr id="email_name_preview">\n' +
+        '<td style="font-size: 15px;font-weight: bold;padding: 6px 6px 0 6px;">' + name.value + '</td>\n' +
         '</tr>\n';
     }
     if (position.value) {
         signatureWst += '<tr id="position">\n' +
-        '<td>' + position.value + '</td>\n' +
+        '<td style="padding: 0 6px;">' + position.value + '</td>\n' +
         '</tr>\n';
     }
 
     if (company.value) {
         signatureWst += '<tr id="job_company">\n' +
-        '<td>' + company.value + '</td>\n' +
+        '<td style="padding: 0 6px 3px 6px;">' + company.value + '</td>\n' +
         '</tr>\n';
     }
 
@@ -58,7 +58,7 @@ function WesternCode() {
         var phoneNum = phone.value;
         var phoneNumCha = convertToAnchorTag(phoneNum);
         signatureWst += '<tr id="phone">\n' +
-        '<td>Phone: \n' +
+        '<td style="padding: 0 6px;">Phone: \n' +
         phone.value + '\n';
 
         if (mobile.value == "") {
@@ -68,7 +68,7 @@ function WesternCode() {
 
     if (mobile.value) {
         if (phone.value == "") {
-            signatureWst += '<tr id="mobile">\n<td>';
+            signatureWst += '<tr id="mobile">\n<td style="padding: 0 6px;">';
         }
         var mobileNum = mobile.value;
         var mobileNumCha = convertToAnchorTag(mobileNum);
@@ -83,13 +83,13 @@ function WesternCode() {
 
     if (fax.value) {
         signatureWst += '<tr id="fax">\n' +
-        '<td>Fax: \n' +
+        '<td style="padding: 0 6px;">Fax: \n' +
         fax.value + '</td>\n' +
         '</tr>\n';
     }
 
     if (email.value) {
-        signatureWst += '<tr id="email_website" style="padding:5px 0 0 0 ">\n<td>\n' +
+        signatureWst += '<tr id="email_website">\n<td style="padding: 0 6px;">\n' +
             //'<td id="email"><a href="mailto:' + email.value + '" style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>\n';
             email.value + '\n';
         if (web.value == "") {
@@ -99,7 +99,7 @@ function WesternCode() {
 
     if (web.value) {
         if (email.value == "") {
-            signatureWst += '<tr id="email_website" style="padding:5px 0 0 0 ">\n<td>\n';
+            signatureWst += '<tr id="email_website">\n<td style="padding: 0 6px;">\n';
         }
         //var webStr = web.value;
         //var webStrChk = webStr.substr(0, 4);
@@ -117,8 +117,8 @@ function WesternCode() {
     }
 
     if (address.value) {
-        signatureWst += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n' +
-            '<td>' + address.value;
+        signatureWst += '<tr>\n' +
+            '<td style="padding: 0 6px 6px 6px;">' + address.value;
         if (zipCode.value == "") {
             signatureWst += '</tr>\n';
         }
@@ -126,14 +126,14 @@ function WesternCode() {
 
     if (zipCode.value) {
         if (address.value == "") {
-            signatureWst += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n<td>\n';
+            signatureWst += '<tr>\n<td style="padding: 0 6px 6px 6px;">\n';
         }
         signatureWst += ' ' + zipCode.value;
     }
 
     if (country.value) {
         if (address.value == "") {
-            signatureWst += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n<td>\n';
+            signatureWst += '<tr>\n<td style="padding: 0 6px 6px 6px;">\n';
         }
         signatureWst += ' ' + country.value + '</td>\n' +
         '</tr>\n';
@@ -145,22 +145,23 @@ function WesternCode() {
 
 function japaneseCode() {
     signatureJpn = '<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">--\n' +
-        '<table style="font-family:sans-serif;font-size:12px;border-spacing:5px 0;border-top:1px solid;border-bottom:1px solid;border-collapse:separate;padding:5px 0;margin:6px 0">\n';
+        '<!--[if mso]> <style type="text/css"> table{mso-table-lspace: 0pt; mso-table-rspace: 0pt;}</style><![end if]--> <table style=" font-family: sans-serif; font-size: 12px; border-top: 1px solid; border-bottom: 1px solid; border-collapse: collapse; " >\n';
 
     if (name.value) {
-        signatureJpn += '<tr id=email_name_preview style="font-size:15px;font-weight:bold">\n' +
-        '<td>' + name.value + '</td>\n' +
-        '</tr>\n';
-    }
-    if (position.value) {
-        signatureJpn += '<tr id="position">\n' +
-        '<td>' + position.value + '</td>\n' +
+        signatureJpn += '<tr id=email_name_preview>\n' +
+        '<td style="font-size: 15px;font-weight: bold;padding: 6px 6px 0 6px;">' + name.value + '</td>\n' +
         '</tr>\n';
     }
 
     if (company.value) {
         signatureJpn += '<tr id="job_company">\n' +
-        '<td>' + company.value + '</td>\n' +
+        '<td style="padding: 0 6px;">' + company.value + '</td>\n' +
+        '</tr>\n';
+    }
+
+    if (position.value) {
+        signatureJpn += '<tr id="position">\n' +
+        '<td style="padding: 0 6px 3px 6px;">' + position.value + '</td>\n' +
         '</tr>\n';
     }
 
@@ -168,7 +169,7 @@ function japaneseCode() {
         var phoneNum = phone.value;
         var phoneNumCha = convertToAnchorTag(phoneNum);
         signatureJpn += '<tr id="phone">\n' +
-        '<td>Phone: \n' +
+        '<td style="padding: 0 6px;">Phone: \n' +
         phone.value + '\n';
 
         if (mobile.value == "") {
@@ -178,7 +179,7 @@ function japaneseCode() {
 
     if (mobile.value) {
         if (phone.value == "") {
-            signatureJpn += '<tr id="mobile">\n<td>';
+            signatureJpn += '<tr id="mobile">\n<td style="padding: 0 6px;">';
         }
         var mobileNum = mobile.value;
         var mobileNumCha = convertToAnchorTag(mobileNum);
@@ -193,13 +194,13 @@ function japaneseCode() {
 
     if (fax.value) {
         signatureJpn += '<tr id="fax">\n' +
-        '<td>Fax: \n' +
+        '<td style="padding: 0 6px;">Fax: \n' +
         fax.value + '</td>\n' +
         '</tr>\n';
     }
 
     if (email.value) {
-        signatureJpn += '<tr id="email_website" style="padding:5px 0 0 0 ">\n<td>\n' +
+        signatureJpn += '<tr id="email_website">\n<td style="padding: 0 6px;">\n' +
             //'<td id="email"><a href="mailto:' + email.value + '" style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>\n';
             email.value + '\n';
         if (web.value == "") {
@@ -209,7 +210,7 @@ function japaneseCode() {
 
     if (web.value) {
         if (email.value == "") {
-            signatureJpn += '<tr id="email_website" style="padding:5px 0 0 0 ">\n<td>\n';
+            signatureJpn += '<tr id="email_website">\n<td style="padding: 0 6px;">\n';
         }
         //var webStr = web.value;
         //var webStrChk = webStr.substr(0, 4);
@@ -227,8 +228,8 @@ function japaneseCode() {
     }
 
     if (address.value) {
-        signatureJpn += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n' +
-            '<td>' + '〒' + zipCode.value;
+        signatureJpn += '<tr>\n' +
+            '<td style="padding: 0 6px 6px 6px;">' + '〒' + zipCode.value;
         if (zipCode.value == "") {
             signatureJpn += '</tr>\n';
         }
@@ -236,7 +237,7 @@ function japaneseCode() {
 
     if (zipCode.value) {
         if (address.value == "") {
-            signatureJpn += '<tr style="font-size:10px;padding:5px 0 0 0 ">\n<td>\n';
+            signatureJpn += '<tr>\n<td style="padding: 0 6px 6px 6px;">\n';
         }
         signatureJpn += ' ' + address.value + '</td>\n' +
         '</tr>\n';
