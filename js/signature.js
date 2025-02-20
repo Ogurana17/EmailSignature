@@ -11,7 +11,10 @@ const web = document.getElementById('inputWeb');
 const address = document.getElementById('inputAddress');
 const zipCode = document.getElementById('inputZipCode');
 const country = document.getElementById('inputCountry');
-
+const headerText = '<meta charset=UTF-8 content=text/html http-equiv=Content-Type>--<!--[if mso]> <style type="text/css">table{mso-table-lspace:0pt!important;mso-table-rspace:0pt!important;}a{color:#0969da!important;text-decoration:none!important}</style><![end if]--><table style="font-family:sans-serif!important;font-size:12px!important;border-top:1px solid!important;border-bottom:1px solid!important;border-collapse:collapse!important">';
+const urlStyle = ' style=color:#0969da!important;text-decoration:none!important>';
+const midTdStyle = '<td style="padding:0 6px!important">';
+const lastTdStyle = '<td style="padding:0 6px 6px 6px!important">';
 
 function create() {
     var code = document.getElementById('outputCode');
@@ -32,218 +35,180 @@ function create() {
     }
 }
 
-
 function WesternCode() {
-    signatureWst = '<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">--\n' +
-        '<!--[if mso]> <style type="text/css"> table{mso-table-lspace: 0pt; mso-table-rspace: 0pt;}</style><![end if]--> <table style=" font-family: sans-serif; font-size: 12px; border-top: 1px solid; border-bottom: 1px solid; border-collapse: collapse; " >\n';
+    signatureWst = headerText;
 
     if (name.value) {
-        signatureWst += '<tr id="email_name_preview">\n' +
-        '<td style="font-size: 15px;font-weight: bold;padding: 6px 6px 0 6px;">' + name.value + '</td>\n' +
-        '</tr>\n';
+        signatureWst += '<tr id=email_name_preview>' +
+        '<td style="font-size:15px!important;font-weight:700!important;padding:6px 6px 0 6px!important">' + name.value;
     }
     if (position.value) {
-        signatureWst += '<tr id="position">\n' +
-        '<td style="padding: 0 6px;">' + position.value + '</td>\n' +
-        '</tr>\n';
+        signatureWst += '<tr id=position>' +
+        '<td style="padding:0 6px 3px 6px!important">' + position.value;
     }
 
     if (company.value) {
-        signatureWst += '<tr id="job_company">\n' +
-        '<td style="padding: 0 6px 3px 6px;">' + company.value + '</td>\n' +
-        '</tr>\n';
+        signatureWst += '<tr id=job_company>' +
+        midTdStyle + company.value;
     }
 
     if (phone.value) {
         var phoneNum = phone.value;
         var phoneNumCha = convertToAnchorTag(phoneNum);
-        signatureWst += '<tr id="phone">\n' +
-        '<td style="padding: 0 6px;">Phone: \n' +
-        phone.value + '\n';
-
-        if (mobile.value == "") {
-            signatureWst += '</td>\n</tr>\n';
-        }
+        signatureWst += '<tr id=phone>' +
+        midTdStyle + 'Phone: ' +
+        phone.value + '';
     }
 
     if (mobile.value) {
         if (phone.value == "") {
-            signatureWst += '<tr id="mobile">\n<td style="padding: 0 6px;">';
+            signatureWst += '<tr id=mobile>' + midTdStyle;
         }
         var mobileNum = mobile.value;
         var mobileNumCha = convertToAnchorTag(mobileNum);
         if (phone.value) {
-            signatureWst += ' | Mobile: \n' + mobile.value + '</td>\n';
+            signatureWst += ' | Mobile: ' + mobile.value;
         }
         else {
-            signatureWst += 'Mobile: \n' + mobile.value + '</td>\n';
+            signatureWst += 'Mobile: ' + mobile.value;
         }
-        signatureWst += '</tr>\n';
     }
 
     if (fax.value) {
-        signatureWst += '<tr id="fax">\n' +
-        '<td style="padding: 0 6px;">Fax: \n' +
-        fax.value + '</td>\n' +
-        '</tr>\n';
+        signatureWst += '<tr id=fax>' +
+        midTdStyle + 'Fax: ' +
+        fax.value;
     }
 
     if (email.value) {
-        signatureWst += '<tr id="email_website">\n<td style="padding: 0 6px;">\n' +
-            //'<td id="email"><a href="mailto:' + email.value + '" style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>\n';
-            email.value + '\n';
-        if (web.value == "") {
-            signatureWst += '</tr>\n';
-        }
+        signatureWst += '<tr id=email_website>' + midTdStyle + '<a href=mailto:' + email.value + urlStyle +
+            //'<td id="email"><a href="mailto:' + email.value + '" style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>';
+            email.value + '</a>' + '';
     }
 
     if (web.value) {
         if (email.value == "") {
-            signatureWst += '<tr id="email_website">\n<td style="padding: 0 6px;">\n';
+            signatureWst += '<tr id=email_website>' + midTdStyle;
         }
         //var webStr = web.value;
         //var webStrChk = webStr.substr(0, 4);
         //if (!(webStrChk === 'http')) {
         //    webStr = 'http://' + web.value;
         //}
-        //signatureWst += '<td id="website">| <a href="' + webStr + '" style="text-decoration:none;color:#1a0dab">' + web.value + '</a></td>\n' +
+        //signatureWst += '<td id="website">| <a href="' + webStr + '" style="text-decoration:none;color:#1a0dab">' + web.value + '</a></td>' +
         if (email.value) {
-            signatureWst += ' | ' + web.value + '</td>\n';
+            signatureWst += ' | <a href=' + web.value + urlStyle + web.value + '</a>';
         }
         else {
-            signatureWst += web.value + '</td>\n';
+            signatureWst += '<a href=' + web.value + urlStyle + web.value + '</a>';
         }
-        signatureWst += '</tr>\n';
     }
 
     if (address.value) {
-        signatureWst += '<tr>\n' +
-            '<td style="padding: 0 6px 6px 6px;">' + address.value;
-        if (zipCode.value == "") {
-            signatureWst += '</tr>\n';
-        }
+        signatureWst += '<tr>' +
+            lastTdStyle + address.value;
     }
 
     if (zipCode.value) {
         if (address.value == "") {
-            signatureWst += '<tr>\n<td style="padding: 0 6px 6px 6px;">\n';
+            signatureWst += '<tr>' + lastTdStyle;
         }
         signatureWst += ' ' + zipCode.value;
     }
 
     if (country.value) {
         if (address.value == "") {
-            signatureWst += '<tr>\n<td style="padding: 0 6px 6px 6px;">\n';
+            signatureWst += '<tr>' + lastTdStyle;
         }
-        signatureWst += ' ' + country.value + '</td>\n' +
-        '</tr>\n';
+        signatureWst += ' ' + country.value;
     }
 
-    signatureWst += '</table>\n<br>';
+    signatureWst += '</table><br>';
 }
 
-
 function japaneseCode() {
-    signatureJpn = '<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">--\n' +
-        '<!--[if mso]> <style type="text/css"> table{mso-table-lspace: 0pt; mso-table-rspace: 0pt;}</style><![end if]--> <table style=" font-family: sans-serif; font-size: 12px; border-top: 1px solid; border-bottom: 1px solid; border-collapse: collapse; " >\n';
+    signatureJpn = headerText;
 
     if (name.value) {
-        signatureJpn += '<tr id=email_name_preview>\n' +
-        '<td style="font-size: 15px;font-weight: bold;padding: 6px 6px 0 6px;">' + name.value + '</td>\n' +
-        '</tr>\n';
+        signatureJpn += '<tr id=email_name_preview>' +
+        '<td style="font-size: 15px;font-weight: bold;padding: 6px 6px 0 6px;">' + name.value;
     }
 
     if (company.value) {
-        signatureJpn += '<tr id="job_company">\n' +
-        '<td style="padding: 0 6px;">' + company.value + '</td>\n' +
-        '</tr>\n';
+        signatureJpn += '<tr id="job_company">' +
+        '<td style="padding: 0 6px;">' + company.value;
     }
 
     if (position.value) {
-        signatureJpn += '<tr id="position">\n' +
-        '<td style="padding: 0 6px 3px 6px;">' + position.value + '</td>\n' +
-        '</tr>\n';
+        signatureJpn += '<tr id="position">' +
+        '<td style="padding: 0 6px 3px 6px;">' + position.value;
     }
 
     if (phone.value) {
         var phoneNum = phone.value;
         var phoneNumCha = convertToAnchorTag(phoneNum);
-        signatureJpn += '<tr id="phone">\n' +
-        '<td style="padding: 0 6px;">Phone: \n' +
-        phone.value + '\n';
-
-        if (mobile.value == "") {
-            signatureJpn += '</td>\n</tr>\n';
-        }
+        signatureJpn += '<tr id="phone">' +
+        '<td style="padding: 0 6px;">Phone: ' +
+        phone.value + '';
     }
 
     if (mobile.value) {
         if (phone.value == "") {
-            signatureJpn += '<tr id="mobile">\n<td style="padding: 0 6px;">';
+            signatureJpn += '<tr id="mobile"><td style="padding: 0 6px;">';
         }
         var mobileNum = mobile.value;
         var mobileNumCha = convertToAnchorTag(mobileNum);
         if (phone.value) {
-            signatureJpn += ' | Mobile: \n' + mobile.value + '</td>\n';
+            signatureJpn += ' | Mobile: ' + mobile.value;
         }
         else {
-            signatureJpn += 'Mobile: \n' + mobile.value + '</td>\n';
+            signatureJpn += 'Mobile: ' + mobile.value;
         }
-        signatureJpn += '</tr>\n';
     }
 
     if (fax.value) {
-        signatureJpn += '<tr id="fax">\n' +
-        '<td style="padding: 0 6px;">Fax: \n' +
-        fax.value + '</td>\n' +
-        '</tr>\n';
+        signatureJpn += '<tr id="fax">' +
+        '<td style="padding: 0 6px;">Fax: ' +
+        fax.value;
     }
 
     if (email.value) {
-        signatureJpn += '<tr id="email_website">\n<td style="padding: 0 6px;">\n' +
-            //'<td id="email"><a href="mailto:' + email.value + '" style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>\n';
-            email.value + '\n';
-        if (web.value == "") {
-            signatureJpn += '</tr>\n';
-        }
+        signatureJpn += '<tr id="email_website"><td style="padding: 0 6px;">' +
+            //'<td id="email"><a href="mailto:' + email.value + '" style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>';
+            email.value + '';
     }
 
     if (web.value) {
         if (email.value == "") {
-            signatureJpn += '<tr id="email_website">\n<td style="padding: 0 6px;">\n';
+            signatureJpn += '<tr id="email_website"><td style="padding: 0 6px;">';
         }
         //var webStr = web.value;
         //var webStrChk = webStr.substr(0, 4);
         //if (!(webStrChk === 'http')) {
         //    webStr = 'http://' + web.value;
         //}
-        //signatureJpn += '<td id="website">| <a href="' + webStr + '" style="text-decoration:none;color:#1a0dab">' + web.value + '</a></td>\n' +
+        //signatureJpn += '<td id="website">| <a href="' + webStr + '" style="text-decoration:none;color:#1a0dab">' + web.value + '</a></td>' +
         if (email.value) {
-            signatureJpn += ' | ' + web.value + '</td>\n';
+            signatureJpn += ' | ' + web.value + '</td>';
         }
         else {
-            signatureJpn += web.value + '</td>\n';
+            signatureJpn += web.value;
         }
-        signatureJpn += '</tr>\n';
     }
 
     if (address.value) {
-        signatureJpn += '<tr>\n' +
+        signatureJpn += '<tr>' +
             '<td style="padding: 0 6px 6px 6px;">' + '〒' + zipCode.value;
-        if (zipCode.value == "") {
-            signatureJpn += '</tr>\n';
-        }
     }
 
     if (zipCode.value) {
         if (address.value == "") {
-            signatureJpn += '<tr>\n<td style="padding: 0 6px 6px 6px;">\n';
+            signatureJpn += '<tr><td style="padding: 0 6px 6px 6px;">';
         }
-        signatureJpn += ' ' + address.value + '</td>\n' +
-        '</tr>\n';
+        signatureJpn += ' ' + address.value;
     }
 
-    signatureJpn += '</table>\n<br>';
+    signatureJpn += '</table><br>';
 }
 
 // http://www.de2p.co.jp/tech/html-css-js/tel-to-anchor-tag/
