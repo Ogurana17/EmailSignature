@@ -44,12 +44,31 @@ function WesternCode() {
     }
     if (position.value) {
         signatureWst += '<tr id=position>' +
-        '<td style="padding:0 6px 3px 6px!important">' + position.value;
+        midTdStyle + position.value;
     }
 
     if (company.value) {
         signatureWst += '<tr id=job_company>' +
-        midTdStyle + company.value;
+        '<td style="padding:0 6px 3px 6px!important">' + company.value;
+    }
+
+    if (address.value) {
+        signatureWst += '<tr id=address>' +
+            midTdStyle + address.value;
+    }
+
+    if (country.value) {
+        if (address.value == "") {
+            signatureWst += '<tr id=address>' + midTdStyle;
+        }
+        signatureWst += ' ' + country.value;
+    }
+
+    if (zipCode.value) {
+        if (address.value == "") {
+            signatureWst += '<tr id=address>' + midTdStyle;
+        }
+        signatureWst += ' , ' + zipCode.value;
     }
 
     if (phone.value) {
@@ -81,14 +100,14 @@ function WesternCode() {
     }
 
     if (email.value) {
-        signatureWst += '<tr id=email_website>' + midTdStyle + '<a href=mailto:' + email.value + urlStyle +
+        signatureWst += '<tr id=email_website>' + lastTdStyle + '<a href=mailto:' + email.value + urlStyle +
             //'<td id="email"><a href="mailto:' + email.value + '" style="text-decoration:none;color:#1a0dab">' + email.value + '</a></td>';
             email.value + '</a>' + '';
     }
 
     if (web.value) {
         if (email.value == "") {
-            signatureWst += '<tr id=email_website>' + midTdStyle;
+            signatureWst += '<tr id=email_website>' + lastTdStyle;
         }
         //var webStr = web.value;
         //var webStrChk = webStr.substr(0, 4);
@@ -102,25 +121,6 @@ function WesternCode() {
         else {
             signatureWst += '<a href=' + web.value + urlStyle + web.value + '</a>';
         }
-    }
-
-    if (address.value) {
-        signatureWst += '<tr>' +
-            lastTdStyle + address.value;
-    }
-
-    if (zipCode.value) {
-        if (address.value == "") {
-            signatureWst += '<tr>' + lastTdStyle;
-        }
-        signatureWst += ' ' + zipCode.value;
-    }
-
-    if (country.value) {
-        if (address.value == "") {
-            signatureWst += '<tr>' + lastTdStyle;
-        }
-        signatureWst += ' ' + country.value;
     }
 
     signatureWst += '</table><br>';
