@@ -53,8 +53,11 @@ function WesternCode() {
     }
 
     if (address.value) {
-        signatureWst += '<tr id=address>' +
-            midTdStyle + address.value;
+        // signatureWst += '<tr id=address>' +
+        //     midTdStyle + address.value;
+            signatureWst += '<tr id=address>' +
+            midTdStyle +
+        '<a href="https://www.google.com/maps/search/?api=1&query=' + address.value + '"' + urlStyle + address.value + '</a>';
     }
 
     if (country.value) {
