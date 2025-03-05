@@ -16,6 +16,10 @@ const urlStyle = ' style=color:#0969da!important;text-decoration:none!important>
 const midTdStyle = '<td style="padding:0 6px!important">';
 const lastTdStyle = '<td style="padding:0 6px 6px 6px!important">';
 
+function replaceSpacesWithNbsp(input) {
+    return (input || "").replace(/\s/g, "&nbsp;");
+}
+
 function create() {
     var code = document.getElementById('outputCode');
     var view = document.getElementById('outputView');
@@ -36,20 +40,28 @@ function create() {
 }
 
 function WesternCode() {
+    const modName = name ? replaceSpacesWithNbsp(name.value) : '';
+    const modPosition = position ? replaceSpacesWithNbsp(position.value) : '';
+    const modCompany = company ? replaceSpacesWithNbsp(company.value) : '';
+    const modAddress = address ? replaceSpacesWithNbsp(address.value) : '';
+    const modZipCode = zipCode ? replaceSpacesWithNbsp(zipCode.value) : '';
+    const modCountry = country ? replaceSpacesWithNbsp(country.value) : '';
+
     signatureWst = headerText;
+    console.log('mod: ' + modName + ', name: ' + name.value);
 
     if (name.value) {
         signatureWst += '<tr id=email_name_preview>' +
-        '<td style="font-size:15px!important;font-weight:700!important;padding:6px 6px 0 6px!important">' + name.value;
+        '<td style="font-size:15px!important;font-weight:700!important;padding:6px 6px 0 6px!important">' + modName;
     }
     if (position.value) {
         signatureWst += '<tr id=position>' +
-        midTdStyle + position.value;
+        midTdStyle + modPosition;
     }
 
     if (company.value) {
         signatureWst += '<tr id=job_company>' +
-        '<td style="padding:0 6px 3px 6px!important">' + company.value;
+        '<td style="padding:0 6px 3px 6px!important">' + modCompany;
     }
 
     if (address.value) {
@@ -57,21 +69,21 @@ function WesternCode() {
         //     midTdStyle + address.value;
             signatureWst += '<tr id=address>' +
             midTdStyle +
-        '<a href="https://www.google.com/maps/search/?api=1&query=' + address.value + '"' + urlStyle + address.value + '</a>';
+        '<a href="https://www.google.com/maps/search/?api=1&query=' + modAddress + '"' + urlStyle + modAddress + '</a>';
     }
 
     if (country.value) {
         if (address.value == "") {
             signatureWst += '<tr id=address>' + midTdStyle;
         }
-        signatureWst += ' ' + country.value;
+        signatureWst += ' ' + modCountry;
     }
 
     if (zipCode.value) {
         if (address.value == "") {
             signatureWst += '<tr id=address>' + midTdStyle;
         }
-        signatureWst += ' , ' + zipCode.value;
+        signatureWst += ' , ' + modZipCode;
     }
 
     if (phone.value) {
