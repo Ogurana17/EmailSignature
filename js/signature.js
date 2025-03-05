@@ -1,7 +1,7 @@
 let signatureWst = '';
 let signatureJpn = '';
 
-const elements = ['Name', 'Position', 'Company', 'Address', 'Country', 'ZipCode', 'Phone', 'Mobile', 'Fax', 'Email', 'Web']
+const elements = ['Name', 'EnglishName', 'Position', 'Company', 'Address', 'Country', 'ZipCode', 'Phone', 'Mobile', 'Fax', 'Email', 'Web']
   .reduce((acc, id) => {
     const camelCaseId = id.charAt(0).toLocaleLowerCase() + id.slice(1);
     return { ...acc, [camelCaseId]: document.getElementById(`input${id}`) };
@@ -39,7 +39,11 @@ function generateSignature(type) {
   let signature = headerText;
   const e = elements;
 
-  if (e.name.value) signature += `<tr id=email_name_preview><td style="font-size:15px!important;font-weight:700!important;padding:6px 6px 0 6px!important">${replaceSpacesWithNbsp(e.name.value)}`;
+  if (e.name.value) signature += `<tr id=name><td style="font-size:15px!important;font-weight:700!important;padding:6px 6px 0 6px!important">${replaceSpacesWithNbsp(e.name.value)}`;
+  if (e.englishName.value) {
+    if (!e.name.value) signature += `<tr id=englishName><td style="font-size:15px!important;font-weight:700!important;padding:6px 6px 0 6px!important">${replaceSpacesWithNbsp(e.englishName.value)}`;
+    else signature += `<a href=https://ogurana17.github.io/EmailSignature/${urlStyle}&nbsp;/&nbsp;</a>${replaceSpacesWithNbsp(e.englishName.value)}`;
+  }
   if (e.position.value) signature += `<tr id=position>${midTdStyle}${replaceSpacesWithNbsp(e.position.value)}`;
   if (e.company.value) signature += `<tr id=job_company><td style="padding:0 6px 3px 6px!important">${replaceSpacesWithNbsp(e.company.value)}`;
   if (e.address.value) signature += `<tr id=address>${midTdStyle}<a href="https://www.google.com/maps/search/?api=1&query=${replaceSpacesWithNbsp(e.address.value)}"${urlStyle}${replaceSpacesWithNbsp(e.address.value)}</a>`;
@@ -54,14 +58,14 @@ function generateSignature(type) {
   if (e.phone.value) {
     let phoneNum = e.phone.value;
     let phoneNumCha = convertToAnchorTag(phoneNum);
-    signature += `<tr id=phone>${midTdStyle}Phone: ${e.phone.value}`;
+    signature += `<tr id=phone>${midTdStyle}Phone: <a href=tel:${e.phone.value}${urlStyle}${e.phone.value}</a>`;
   }
   if (e.mobile.value) {
     if (!e.phone.value) signature += `<tr id=mobile>${midTdStyle}`;
     let mobileNum = e.mobile.value;
     let mobileNumCha = convertToAnchorTag(mobileNum);
-    if (e.phone.value) signature += ` | Mobile: ${e.mobile.value}`;
-    else signature += `Mobile: ${e.mobile.value}`;
+    if (e.phone.value) signature += ` | Mobile: <a href=tel:${e.mobile.value}${urlStyle}${e.mobile.value}</a>`;
+    else signature += `Mobile: <a href=tel:${e.mobile.value}${urlStyle}${e.mobile.value}</a>`;
   }
   if (e.fax.value) signature += `<tr id=fax>${midTdStyle}Fax: ${e.fax.value}`;
   if (e.email.value) signature += `<tr id=email_website>${lastTdStyle}<a href=mailto:${e.email.value}${urlStyle}${e.email.value}</a>`;
