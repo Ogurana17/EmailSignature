@@ -7,7 +7,7 @@ const elements = ['Name', 'EnglishName', 'Position', 'Company', 'Address', 'Coun
     return { ...acc, [camelCaseId]: document.getElementById(`input${id}`) };
   }, {});
 
-const headerText = '<meta charset=UTF-8 content=text/html http-equiv=Content-Type>' +
+const headerText = '--<meta charset=UTF-8 content=text/html http-equiv=Content-Type>' +
   '<!--[if mso]><style type="text/css">table{mso-table-lspace:0pt!important;mso-table-rspace:0pt!important;}a{color:#0969da!important;text-decoration:none!important}</style><![end if]-->' +
   '<table style="font-family:sans-serif!important;font-size:12px!important;border-top:1px solid!important;border-bottom:1px solid!important;border-collapse:collapse!important">';
 
