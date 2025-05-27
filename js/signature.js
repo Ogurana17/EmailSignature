@@ -86,3 +86,13 @@ function convertToAnchorTag(str) {
     .find(num => num.length >= 10);
   return phone ? `<a href="tel:${phone}"${urlStyle}>${phone}</a>` : str;
 }
+
+// プリフィル対応
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  for (const key in elements) {
+    if (params.has(key)) {
+      elements[key].value = decodeURIComponent(params.get(key).replace(/\+/g, ' '));
+    }
+  }
+});
