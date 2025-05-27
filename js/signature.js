@@ -21,6 +21,7 @@ function create() {
   let code = document.getElementById('outputCode');
   let view = document.getElementById('outputView');
   let style = document.getElementsByName('optionsRadios');
+  let url = document.getElementById('outputUrl');
 
   if (style[0].checked) {
     generateSignature('wst');
@@ -32,6 +33,7 @@ function create() {
     code.value = signatureJpn;
     view.innerHTML = signatureJpn;
   }
+  url.value = generatePrefilledUrl();
   code.select();
 }
 
@@ -87,7 +89,7 @@ function convertToAnchorTag(str) {
   return phone ? `<a href="tel:${phone}"${urlStyle}>${phone}</a>` : str;
 }
 
-// プリフィル対応
+// プリフィルURLデコード
 window.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   for (const key in elements) {
@@ -96,3 +98,19 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+// プリフィルURLエンコード
+function generatePrefilledUrl() {
+  const baseUrl = window.location.origin + window.location.pathname;
+  const params = new URLSearchParams();
+
+  for (const key in elements) {
+    const value = elements[key].value.trim();
+    if (value) {
+      params.set(key, value);
+    }
+  }
+
+  const url = `${baseUrl}?${params.toString()}`;
+  return url;
+}
