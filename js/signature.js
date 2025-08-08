@@ -13,7 +13,7 @@ const headerText = '--<meta charset=UTF-8 content=text/html http-equiv=Content-T
 
 const urlStyle = ' style=color:#0969da!important;text-decoration:none!important>';
 const midTdStyle = '<td style="padding:0 6px!important">';
-const lastTdStyle = '<td style="padding:0 6px 6px 6px!important">';
+const lastTdStyle = '<td style="padding:0 6px 6px!important">';
 
 const replaceSpacesWithNbsp = input => (input || "").replace(/\s/g, "&nbsp;");
 
@@ -41,13 +41,13 @@ function generateSignature(type) {
   let signature = headerText;
   const e = elements;
 
-  if (e.name.value) signature += `<tr id=name><td style="font-size:15px!important;font-weight:700!important;padding:6px 6px 0 6px!important">${replaceSpacesWithNbsp(e.name.value)}`;
+  if (e.name.value) signature += `<tr id=name><td style="font-size:15px!important;font-weight:700!important;padding:6px 6px 0!important">${replaceSpacesWithNbsp(e.name.value)}`;
   if (e.englishName.value) {
-    if (!e.name.value) signature += `<tr id=englishName><td style="font-size:15px!important;font-weight:700!important;padding:6px 6px 0 6px!important">${replaceSpacesWithNbsp(e.englishName.value)}`;
+    if (!e.name.value) signature += `<tr id=englishName><td style="font-size:15px!important;font-weight:700!important;padding:6px 6px 0!important">${replaceSpacesWithNbsp(e.englishName.value)}`;
     else signature += `<a href=https://ogurana17.github.io/EmailSignature/${urlStyle}&nbsp;/&nbsp;</a>${replaceSpacesWithNbsp(e.englishName.value)}`;
   }
   if (e.position.value) signature += `<tr id=position>${midTdStyle}${replaceSpacesWithNbsp(e.position.value)}`;
-  if (e.company.value) signature += `<tr id=job_company><td style="padding:0 6px 3px 6px!important">${replaceSpacesWithNbsp(e.company.value)}`;
+  if (e.company.value) signature += `<tr id=job_company><td style="padding:0 6px 3px!important">${replaceSpacesWithNbsp(e.company.value)}`;
   if (e.address.value) signature += `<tr id=address>${midTdStyle}<a href="https://www.google.com/maps/search/?api=1&query=${replaceSpacesWithNbsp(e.address.value)}"${urlStyle}${replaceSpacesWithNbsp(e.address.value)}</a>`;
   if (e.country.value) {
     if (!e.address.value) signature += `<tr id=address>${midTdStyle}`;
