@@ -8,12 +8,12 @@ const elements = ['Name', 'EnglishName', 'Position', 'Company', 'Address', 'Coun
   }, {});
 
 const headerText = '--<meta charset=UTF-8 content=text/html http-equiv=Content-Type>' +
-  '<!--[if mso]><style type="text/css">table{mso-table-lspace:0pt!important;mso-table-rspace:0pt!important;}a{color:#0969da!important;text-decoration:none!important}</style><![end if]-->' +
-  '<table style="font-family:sans-serif!important;font-size:12px!important;border-top:1px solid!important;border-bottom:1px solid!important;border-collapse:collapse!important">';
+  '<!--[if mso]><style type="text/css">table,td{mso-table-lspace:0pt!important;mso-table-rspace:0pt!important;}td,p{margin:0!important;mso-line-height-rule:exactly!important;line-height:140%!important;}a{color:#4493f8!important;text-decoration:none!important}</style><![endif]-->' +
+  '<table cellpadding="0" cellspacing="0" style="font-family:sans-serif!important;font-size:12px!important;border-top:1px solid!important;border-bottom:1px solid!important;border-collapse:collapse!important;mso-table-lspace:0pt!important;mso-table-rspace:0pt!important">';
 
-const urlStyle = ' style=color:#0969da!important;text-decoration:none!important>';
-const midTdStyle = '<td style="padding:0 6px!important">';
-const lastTdStyle = '<td style="padding:0 6px 6px!important">';
+const urlStyle = ' style=color:#4493f8!important;text-decoration:none!important>';
+const midTdStyle = '<td style="padding:0 6px!important;margin:0!important;line-height:140%!important;mso-line-height-rule:exactly!important">';
+const lastTdStyle = '<td style="padding:0 6px 6px!important;margin:0!important;line-height:140%!important;mso-line-height-rule:exactly!important">';
 
 const replaceSpacesWithNbsp = input => (input || "").replace(/\s/g, "&nbsp;");
 
@@ -38,46 +38,74 @@ function create() {
 }
 
 function generateSignature(type) {
-  let signature = headerText;
   const e = elements;
+  let rows = '';
 
-  if (e.name.value) signature += `<tr id=name><td style="font-size:15px!important;font-weight:700!important;padding:6px 6px 0!important">${replaceSpacesWithNbsp(e.name.value)}`;
-  if (e.englishName.value) {
-    if (!e.name.value) signature += `<tr id=englishName><td style="font-size:15px!important;font-weight:700!important;padding:6px 6px 0!important">${replaceSpacesWithNbsp(e.englishName.value)}`;
-    else signature += `<a href=https://ogurana17.github.io/EmailSignature/${urlStyle}&nbsp;/&nbsp;</a>${replaceSpacesWithNbsp(e.englishName.value)}`;
-  }
-  if (e.position.value) signature += `<tr id=position>${midTdStyle}${replaceSpacesWithNbsp(e.position.value)}`;
-  if (e.company.value) signature += `<tr id=job_company><td style="padding:0 6px 3px!important">${replaceSpacesWithNbsp(e.company.value)}`;
-  if (e.address.value) signature += `<tr id=address>${midTdStyle}<a href="https://www.google.com/maps/search/?api=1&query=${replaceSpacesWithNbsp(e.address.value)}"${urlStyle}${replaceSpacesWithNbsp(e.address.value)}</a>`;
-  if (e.country.value) {
-    if (!e.address.value) signature += `<tr id=address>${midTdStyle}`;
-    signature += ` ${replaceSpacesWithNbsp(e.country.value)}`;
-  }
-  if (e.zipCode.value) {
-    if (!e.address.value) signature += `<tr id=address>${midTdStyle}`;
-    signature += ` , ${replaceSpacesWithNbsp(e.zipCode.value)}`;
-  }
-  if (e.phone.value) {
-    let phoneNum = e.phone.value;
-    let phoneNumCha = convertToAnchorTag(phoneNum);
-    signature += `<tr id=phone>${midTdStyle}Phone: <a href=tel:${e.phone.value}${urlStyle}${e.phone.value}</a>`;
-  }
-  if (e.mobile.value) {
-    if (!e.phone.value) signature += `<tr id=mobile>${midTdStyle}`;
-    let mobileNum = e.mobile.value;
-    let mobileNumCha = convertToAnchorTag(mobileNum);
-    if (e.phone.value) signature += ` | Mobile: <a href=tel:${e.mobile.value}${urlStyle}${e.mobile.value}</a>`;
-    else signature += `Mobile: <a href=tel:${e.mobile.value}${urlStyle}${e.mobile.value}</a>`;
-  }
-  if (e.fax.value) signature += `<tr id=fax>${midTdStyle}Fax: ${e.fax.value}`;
-  if (e.email.value) signature += `<tr id=email_website>${lastTdStyle}<a href=mailto:${e.email.value}${urlStyle}${e.email.value}</a>`;
-  if (e.web.value) {
-    if (!e.email.value) signature += `<tr id=email_website>${lastTdStyle}`;
-    if (e.email.value) signature += ` | <a href=${e.web.value}${urlStyle}${e.web.value}</a>`;
-    else signature += `<a href=${e.web.value}${urlStyle}${e.web.value}</a>`;
+  // Name / English Name
+  if (e.name.value || e.englishName.value) {
+    let content;
+    if (e.name.value) {
+      content = replaceSpacesWithNbsp(e.name.value);
+      if (e.englishName.value) {
+        content += `<a href=https://ogurana17.github.io/EmailSignature/${urlStyle}&nbsp;/&nbsp;</a>${replaceSpacesWithNbsp(e.englishName.value)}`;
+      }
+    } else {
+      content = replaceSpacesWithNbsp(e.englishName.value);
+    }
+    rows += `<tr id=name><td style="font-size:15px!important;font-weight:700!important;padding:6px 6px 0!important;margin:0!important;line-height:140%!important;mso-line-height-rule:exactly!important">${content}</td></tr>`;
   }
 
-  signature += `</table><br>`;
+  // Position
+  if (e.position.value) {
+    rows += `<tr id=position>${midTdStyle}${replaceSpacesWithNbsp(e.position.value)}</td></tr>`;
+  }
+
+  // Company
+  if (e.company.value) {
+    rows += `<tr id=job_company><td style="padding:0 6px 3px!important;margin:0!important;line-height:140%!important;mso-line-height-rule:exactly!important">${replaceSpacesWithNbsp(e.company.value)}</td></tr>`;
+  }
+
+  // Address / Country / ZipCode
+  if (e.address.value || e.country.value || e.zipCode.value) {
+    let content = '';
+    if (e.address.value) {
+      content += `<a href="https://www.google.com/maps/search/?api=1&query=${replaceSpacesWithNbsp(e.address.value)}"${urlStyle}${replaceSpacesWithNbsp(e.address.value)}</a>`;
+    }
+    if (e.country.value) content += ` ${replaceSpacesWithNbsp(e.country.value)}`;
+    if (e.zipCode.value) content += ` , ${replaceSpacesWithNbsp(e.zipCode.value)}`;
+    rows += `<tr id=address>${midTdStyle}${content}</td></tr>`;
+  }
+
+  // Phone / Mobile
+  if (e.phone.value || e.mobile.value) {
+    let content = '';
+    if (e.phone.value) content += `Phone: <a href=tel:${e.phone.value}${urlStyle}${e.phone.value}</a>`;
+    if (e.mobile.value) {
+      content += e.phone.value
+        ? ` | Mobile: <a href=tel:${e.mobile.value}${urlStyle}${e.mobile.value}</a>`
+        : `Mobile: <a href=tel:${e.mobile.value}${urlStyle}${e.mobile.value}</a>`;
+    }
+    rows += `<tr id=phone>${midTdStyle}${content}</td></tr>`;
+  }
+
+  // Fax
+  if (e.fax.value) {
+    rows += `<tr id=fax>${midTdStyle}Fax: ${e.fax.value}</td></tr>`;
+  }
+
+  // Email / Web
+  if (e.email.value || e.web.value) {
+    let content = '';
+    if (e.email.value) content += `<a href=mailto:${e.email.value}${urlStyle}${e.email.value}</a>`;
+    if (e.web.value) {
+      content += e.email.value
+        ? ` | <a href=${e.web.value}${urlStyle}${e.web.value}</a>`
+        : `<a href=${e.web.value}${urlStyle}${e.web.value}</a>`;
+    }
+    rows += `<tr id=email_website>${lastTdStyle}${content}</td></tr>`;
+  }
+
+  const signature = `${headerText}${rows}</table><br>`;
   if (type == 'wst') signatureWst = signature;
   else signatureJpn = signature;
 }
