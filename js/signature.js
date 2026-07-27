@@ -1,6 +1,3 @@
-let signatureWst = '';
-let signatureJpn = '';
-
 const elements = ['Name', 'EnglishName', 'Position', 'Company', 'Address', 'Country', 'ZipCode', 'Phone', 'Mobile', 'Fax', 'Email', 'Web']
   .reduce((acc, id) => {
     const camelCaseId = id.charAt(0).toLocaleLowerCase() + id.slice(1);
@@ -17,27 +14,52 @@ const lastTdStyle = '<td style="padding:0 6px 6px!important;margin:0!important;l
 
 const replaceSpacesWithNbsp = input => (input || "").replace(/\s/g, "&nbsp;");
 
-function create() {
-  let code = document.getElementById('outputCode');
-  let view = document.getElementById('outputView');
-  let style = document.getElementsByName('optionsRadios');
-  let url = document.getElementById('outputUrl');
+const form = document.getElementById('signatureForm');
+const view = document.getElementById('outputView');
+const code = document.getElementById('outputCode');
+const url = document.getElementById('outputUrl');
+const copySignatureBtn = document.getElementById('copySignatureBtn');
+const copyCodeBtn = document.getElementById('copyCodeBtn');
+const copyUrlBtn = document.getElementById('copyUrlBtn');
+const copyButtons = [copySignatureBtn, copyCodeBtn, copyUrlBtn];
 
-  if (style[0].checked) {
-    generateSignature('wst');
-    code.value = signatureWst;
-    view.innerHTML = signatureWst;
-  }
-  else {
-    generateSignature('jpn');
-    code.value = signatureJpn;
-    view.innerHTML = signatureJpn;
-  }
+let signatureHtml = '';
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  create();
+});
+
+// Native reset only clears input fields; also clear the output panels.
+form.addEventListener('reset', () => setTimeout(clearOutputs, 0));
+
+function create() {
+  signatureHtml = generateSignature();
+  code.value = signatureHtml;
   url.value = generatePrefilledUrl();
-  code.select();
+  renderPreview(signatureHtml);
+  copyButtons.forEach(btn => { btn.disabled = false; });
 }
 
-function generateSignature(type) {
+function clearOutputs() {
+  signatureHtml = '';
+  code.value = '';
+  url.value = '';
+  renderPreview('');
+  copyButtons.forEach(btn => { btn.disabled = true; });
+}
+
+// The preview renders inside an iframe via srcdoc so none of this page's
+// own CSS (or any framework reset) leaks in. That keeps it an accurate,
+// unopinionated stand-in for how a mail client (e.g. Thunderbird) will
+// actually render the generated markup.
+function renderPreview(html) {
+  view.srcdoc = html
+    ? `<!DOCTYPE html><html><head><meta charset="utf-8"><style>html,body{margin:0;padding:12px;background:#fff;color:#000;}</style></head><body>${html}</body></html>`
+    : '';
+}
+
+function generateSignature() {
   const e = elements;
   let rows = '';
 
@@ -105,26 +127,22 @@ function generateSignature(type) {
     rows += `<tr id=email_website>${lastTdStyle}${content}</td></tr>`;
   }
 
-  const signature = `${headerText}${rows}</table><br>`;
-  if (type == 'wst') signatureWst = signature;
-  else signatureJpn = signature;
-}
-
-function convertToAnchorTag(str) {
-  const phone = (str.match(/\+?[0-9]+[\-\x20]?[0-9]+[\-\x20]?[0-9]+[\-\x20]?[0-9]+/g) || [])
-    .map(num => num.replace(/[\-\x20]/g, ''))
-    .find(num => num.length >= 10);
-  return phone ? `<a href="tel:${phone}"${urlStyle}>${phone}</a>` : str;
+  return `${headerText}${rows}</table><br>`;
 }
 
 // プリフィルURLデコード
 window.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
+  let hasParams = false;
   for (const key in elements) {
     if (params.has(key)) {
       elements[key].value = decodeURIComponent(params.get(key).replace(/\+/g, ' '));
+      hasParams = true;
     }
   }
+  // If the page was opened via a parameter URL, render immediately
+  // instead of waiting for the user to press Create.
+  if (hasParams) create();
 });
 
 // プリフィルURLエンコード
@@ -139,6 +157,47 @@ function generatePrefilledUrl() {
     }
   }
 
-  const url = `${baseUrl}?${params.toString()}`;
-  return url;
+  return `${baseUrl}?${params.toString()}`;
 }
+
+// Clipboard helpers
+
+async function copyPlainText(text, btn) {
+  try {
+    await navigator.clipboard.writeText(text);
+    flashCopied(btn);
+  } catch (err) {
+    console.error('Copy failed', err);
+  }
+}
+
+async function copySignature(btn) {
+  try {
+    if (navigator.clipboard && window.ClipboardItem) {
+      const item = new ClipboardItem({
+        'text/html': new Blob([signatureHtml], { type: 'text/html' }),
+        'text/plain': new Blob([signatureHtml], { type: 'text/plain' }),
+      });
+      await navigator.clipboard.write([item]);
+    } else {
+      await navigator.clipboard.writeText(signatureHtml);
+    }
+    flashCopied(btn);
+  } catch (err) {
+    console.error('Copy failed', err);
+  }
+}
+
+function flashCopied(btn) {
+  const original = btn.textContent;
+  btn.textContent = 'Copied';
+  btn.classList.add('copied');
+  setTimeout(() => {
+    btn.textContent = original;
+    btn.classList.remove('copied');
+  }, 1500);
+}
+
+copySignatureBtn.addEventListener('click', () => copySignature(copySignatureBtn));
+copyCodeBtn.addEventListener('click', () => copyPlainText(code.value, copyCodeBtn));
+copyUrlBtn.addEventListener('click', () => copyPlainText(url.value, copyUrlBtn));

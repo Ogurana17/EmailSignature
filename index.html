@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
@@ -7,251 +7,128 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 	<title>Email Signature Tool</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css"/>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<style type="text/css">
-		@media (min-width: 768px) {
-			#banner {
-				min-height: 300px;
-				border-bottom: none;
-			}
-
-			.bs-docs-section {
-				margin-top: 8em;
-			}
-
-			.bs-component {
-				position: relative;
-			}
-
-			.bs-component .modal {
-				position: relative;
-				top: auto;
-				right: auto;
-				left: auto;
-				bottom: auto;
-				z-index: 1;
-				display: block;
-			}
-
-			.bs-component .modal-dialog {
-				width: 90%;
-			}
-
-			.bs-component .popover {
-				position: relative;
-				display: inline-block;
-				width: 220px;
-				margin: 20px;
-			}
-
-			.nav-tabs {
-				margin-bottom: 15px;
-			}
-
-			.progress {
-				margin-bottom: 10px;
-			}
-
-			.panel-body {
-				word-wrap: break-word;
-			}
-		}
-	</style>
-
-	<!--[if lt IE 9]>
-		<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
-
+	<meta name="description" content="Create a clean, mail-client-ready HTML email signature in seconds.">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-	<div class="container">
-
-		<div class="page-header" id="banner">
-			<div class="row">
-				<div class="col-lg-8 col-md-7 col-sm-6">
-					<h1>Email Signature Tool</h1>
-					<p class="lead">Makes easy to create beautiful Email signatures.</p>
-				</div>
-			</div>
+	<header class="site-header">
+		<div class="wrap">
+			<p class="eyebrow">Email Signature Tool</p>
+			<h1>Build a signature that pastes cleanly into any inbox</h1>
+			<p class="lead">Fill in your details, hit Create, then copy the result into your mail client's signature editor.</p>
 		</div>
+	</header>
 
-		<!-- Forms
-	================================================== -->
+	<main class="wrap layout">
 
-		<div class="row">
-			<div class="col-lg-10">
-				<div class="bs-component">
-					<div class="jumbotron">
-						<h1>How use</h1>
-						<ol class="lead">
-							<li>Input Information.</li>
-							<li>Click <b>"Create".</b></li>
-							<li>Copy <b>"Html Code"</b> or <b>"Signature"</b> and paste it to an arbitrary position.
-							</li>
-						</ol>
-						<p>Completion of a beautiful signature ;-)</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-5">
-				<div class="well bs-component">
-					<div class="form-horizontal">
-						<fieldset>
-							<legend>Information</legend>
-							<div class="form-group">
-								<label for="inputName" class="col-lg-2 control-label">Name</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control" id="inputName" placeholder="Hoheto Irohani">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputenglshName" class="col-lg-2 control-label">English Name</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control" id="inputEnglishName" placeholder="Hoheto Irohani">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputPosition" class="col-lg-2 control-label">Position</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control" id="inputPosition" placeholder="Foo">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputCompany" class="col-lg-2 control-label">Company</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control" id="inputCompany"
-										placeholder="Company Inc.">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputAddress" class="col-lg-2 control-label">Address</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control" id="inputAddress"
-										placeholder="1-2-3 cho, Shi, Ken">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputCountry" class="col-lg-2 control-label">Country</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control" id="inputCountry"
-										placeholder="JP (Western style only)">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputZipCode" class="col-lg-2 control-label">ZipCode</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control" id="inputZipCode" placeholder="123-4567">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputPhone" class="col-lg-2 control-label">Phone</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control" id="inputPhone" placeholder="000-000-0000">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputMobile" class="col-lg-2 control-label">Mobile</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control" id="inputMobile"
-										placeholder="000-0000-0000">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputFax" class="col-lg-2 control-label">Fax</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control" id="inputFax" placeholder="000-000-0000">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail" class="col-lg-2 control-label">Email</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control" id="inputEmail"
-										placeholder="example@ex.com">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputWeb" class="col-lg-2 control-label">Web</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control" id="inputWeb" placeholder="https://example.com">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-lg-2 control-label">Style</label>
-								<div class="col-lg-10">
-									<div class="radio">
-										<label>
-											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"
-												checked>
-											Western
-										</label>
-									</div>
-									<div class="radio">
-										<label>
-											<input type="radio" name="optionsRadios" id="optionsRadios2"
-												value="option2" disabled>
-											Japanese
-										</label>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-lg-10 col-lg-offset-2">
-									<button type="reset" class="btn btn-default">Clear</button>
-									<button type="submit" class="btn btn-primary" id="createBtn"
-										onclick="create()">Create</button>
-								</div>
-							</div>
-						</fieldset>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-5">
-				<div class="bs-component">
-					<div class="panel panel-info">
-						<div class="panel-heading">
-							<h3 class="panel-title">Signature</h3>
-						</div>
-						<div class="panel-body" id="outputView"></div>
-					</div>
-					<div class="panel panel-info">
-						<div class="panel-heading">
-							<h3 class="panel-title">HTML Code</h3>
-						</div>
-						<input type="text" class="form-control" id="outputCode">
-					</div>
-					<div class="panel panel-info">
-						<div class="panel-heading">
-							<h3 class="panel-title">parameters URLs</h3>
-						</div>
-						<input type="text" class="form-control" id="outputUrl">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+		<section class="panel form-panel" aria-labelledby="info-heading">
+			<h2 id="info-heading">Information</h2>
 
-	<footer class="small">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 text-center copyright">
-					&copy; 2018-2026 Naoki Ogura
+			<form id="signatureForm">
+				<div class="field-grid">
+					<div class="field">
+						<label for="inputName">Name</label>
+						<input type="text" id="inputName" placeholder="Hoheto Irohani">
+					</div>
+					<div class="field">
+						<label for="inputEnglishName">English Name</label>
+						<input type="text" id="inputEnglishName" placeholder="Hoheto Irohani">
+					</div>
+					<div class="field">
+						<label for="inputPosition">Position</label>
+						<input type="text" id="inputPosition" placeholder="Foo">
+					</div>
+					<div class="field">
+						<label for="inputCompany">Company</label>
+						<input type="text" id="inputCompany" placeholder="Company Inc.">
+					</div>
+					<div class="field full">
+						<label for="inputAddress">Address</label>
+						<input type="text" id="inputAddress" placeholder="1-2-3 cho, Shi, Ken">
+					</div>
+					<div class="field">
+						<label for="inputCountry">Country</label>
+						<input type="text" id="inputCountry" placeholder="JP (Western style only)">
+					</div>
+					<div class="field">
+						<label for="inputZipCode">ZipCode</label>
+						<input type="text" id="inputZipCode" placeholder="123-4567">
+					</div>
+					<div class="field">
+						<label for="inputPhone">Phone</label>
+						<input type="text" id="inputPhone" placeholder="000-000-0000">
+					</div>
+					<div class="field">
+						<label for="inputMobile">Mobile</label>
+						<input type="text" id="inputMobile" placeholder="000-0000-0000">
+					</div>
+					<div class="field">
+						<label for="inputFax">Fax</label>
+						<input type="text" id="inputFax" placeholder="000-000-0000">
+					</div>
+					<div class="field">
+						<label for="inputEmail">Email</label>
+						<input type="text" id="inputEmail" placeholder="example@ex.com">
+					</div>
+					<div class="field full">
+						<label for="inputWeb">Web</label>
+						<input type="text" id="inputWeb" placeholder="https://example.com">
+					</div>
 				</div>
+
+				<div class="actions">
+					<button type="reset" class="btn btn-ghost">Clear</button>
+					<button type="submit" class="btn btn-primary" id="createBtn">Create Signature</button>
+				</div>
+			</form>
+		</section>
+
+		<section class="panel output-panel" aria-labelledby="output-heading">
+			<h2 id="output-heading">Output</h2>
+
+			<div class="output-block">
+				<div class="output-block-header">
+					<h3>Signature Preview</h3>
+					<button type="button" class="btn btn-small" id="copySignatureBtn" disabled>Copy</button>
+				</div>
+				<p class="hint">Rendered inside an isolated frame with no page styling applied, so it closely matches
+					how a mail client such as Thunderbird will actually display it.</p>
+				<iframe id="outputView" class="preview-frame" title="Signature preview"></iframe>
 			</div>
+
+			<div class="output-block">
+				<div class="output-block-header">
+					<h3>HTML Code</h3>
+					<button type="button" class="btn btn-small" id="copyCodeBtn" disabled>Copy</button>
+				</div>
+				<p class="hint">Paste this into your mail client's HTML signature editor.</p>
+				<textarea id="outputCode" rows="4" readonly></textarea>
+			</div>
+
+			<div class="output-block">
+				<div class="output-block-header">
+					<h3>Parameter URL</h3>
+					<button type="button" class="btn btn-small" id="copyUrlBtn" disabled>Copy</button>
+				</div>
+				<p class="hint">Everything you typed is encoded into this URL's query parameters &mdash; nothing is
+					sent to or stored on a server. Open it later, or send it to someone else, and the form (and
+					preview) will fill itself in automatically.</p>
+				<textarea id="outputUrl" rows="2" readonly></textarea>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<p class="footer-links"><a href="https://github.com/Ogurana17/EmailSignature" target="_blank" rel="noopener">GitHub</a></p>
+			<p>&copy; 2018&ndash;2026 Naoki Ogura</p>
 		</div>
 	</footer>
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
 	<script src="js/signature.js"></script>
-
-	<script type="text/javascript">
-		$('.bs-component [data-toggle="popover"]').popover();
-		$('.bs-component [data-toggle="tooltip"]').tooltip();
-	</script>
 
 </body>
 
